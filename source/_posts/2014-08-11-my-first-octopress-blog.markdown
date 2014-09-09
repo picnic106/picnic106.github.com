@@ -7,8 +7,18 @@ categories: [Octopress, github]
 description: "我的第一篇Octopress博客" 
 keywords: Octopress,github,jekyll
 ---
-一、缘起
+目录
 ============================
+<a href="#YQ" title="github">一、缘起</a>  
+<a href="#JSD" title="github">二、需要了解的技术点</a>  
+<a href="#BKDJ" title="github">三、博客搭建</a>  
+<a href="#ZDPZ" title="github">四、站点配置</a>  
+<a href="#SYBK" title="github">五、使用博客</a>  
+<a href="#ZYWT" title="github">六、注意问题</a>  
+
+
+
+<h1 id="YQ">一、缘起</h1>
 &emsp;&emsp;一直想搭建一个自己的博客，用于技术积累的记录。例如有些技术问题会一而再、再而三的出现，但是还是每次要上网查找或者花时间回忆解决办法；例如在项目管理中出现的一些感悟，可能是一闪而过，如果不记录下来下次很难再想起来。虽然目前自己有一个技术积累库，记录在word文档里，有两个缺点，一是查找不方便，第二个是不能用于其他码农的相互借鉴：我的解决办法是不是最优解决办法？我的想法是不是有偏差？
 
 &emsp;&emsp;所以花时间搭建了这么一个octopress的博客系统。之前看过wordpress的搭建方法，安装文件越来越大，里面自带的东西也越来越多，php、apache、mysql学习成本也很大。最主要的是需要自己去购买空间安装这些组件。但是我只是需要一个写博客记录并发布给其他志同道合的朋友看而已，为何要这么庞大？所以就一直搁浅。如果我能有一个很方便写博客，且又不需要自己购买空间的方法该有多好！或者是自己太贪心了些。
@@ -23,9 +33,7 @@ keywords: Octopress,github,jekyll
 * * *
 
 
-
-二、需要了解的技术点
-============================
+<h1 id="JSD">二、需要了解的技术点</h1>
 **<font size=4>1.git</font>**:是一个开源的项目版本管理工具，如同cvs、svn。由linux的发明者Linus Torvalds编写，用作Linux内核代码的管理。
 
 *   [git主页](http://www.git-scm.com/ "git")。  
@@ -76,8 +84,9 @@ keywords: Octopress,github,jekyll
 
 * * *
 
-三、博客搭建
-============================
+
+<h1 id="BKDJ">三、博客搭建</h1>
+
 &emsp;&emsp;搭建环境：win7 sp1。  
 &emsp;&emsp;主体思路是，既然Octopress是使用jekyll来实现的框架，而jekyll是使用ruby写的，那么必然得安装ruby，ruby扩展需要用到Devkit。而博客空间又需要github实现托管，自然需要下载git工具。另外一个博客代码加亮模块需要python的支持。所以需要安装的软件为：ruby、Devkit、octopress、git、python。  
 &emsp;&emsp;为了使ruby使用中文utf-8编码，需要给操作系统加两个环境变量，  
@@ -212,8 +221,8 @@ Github Pages使用master分支，就像web服务器上的公共目录，为我�
 {% endcodeblock %}
 * * *
 
-四、站点配置
-============================
+
+<h1 id="ZDPZ">四、站点配置</h1>
 &emsp;&emsp;[站点配置介绍](http://jekyllrb.com/docs/variables/)。  
 {% blockquote %}
 Jekyll允许你很轻松的设计你的网站，这很大程度上归功于灵活强大的配置功能。既可以配置在网站根目录下的 _config.yml 文件，也可以作为命令行的标记来配置。
@@ -231,7 +240,8 @@ Jekyll允许你很轻松的设计你的网站，这很大程度上归功于灵�
 
 * * *
 
-五、使用博客
+
+<h1 id="SYBK">五、使用博客</h1>
 ============================
 &emsp;&emsp;[octopress官方使用文档](http://octopress.org/docs/blogging/)，以下基本是对官方文档的翻译：  
 
@@ -322,8 +332,7 @@ rake deploy   # 将博客内容发布到github，过几秒，在浏览器网址�
 
 * * *
 
-六、注意问题
-============================
+<h1 id="ZYWT">六、注意问题</h1>
 1，配置ssh
 -------------
 在本地安装完git,在github服务器注册完帐号，新建库之后，需要配置ssh密钥。新建库之后需要配置github的ssh密钥,要不然在`rake deploy`部署命令的时候会报错：  

@@ -91,6 +91,8 @@ task :preview do
   }
 
   [jekyllPid, compassPid, rackupPid].each { |pid| Process.wait(pid) }
+  
+  
 end
 
 # usage rake new_post[my-new-post] or rake new_post['my new post'] or rake new_post (defaults to "new-post")

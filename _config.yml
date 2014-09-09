@@ -7,7 +7,7 @@ title: 寧靜致遠
 subtitle: 焚膏油以繼晷，恆兀兀以窮年。
 author: songyj
 simple_search: http://www.baidu.com/
-description:
+description: 这是知识积累与生命哲思一同迸发的地方。
 
 # Default date format is "ordinal" (resulting in "July 22nd 2007")
 # You can customize the format as defined in
@@ -21,6 +21,7 @@ subscribe_rss: /atom.xml
 subscribe_email:
 # RSS feeds can list your email address if you like
 email: picnic106@163.com
+email_md5: d7a6da1108f5964ede60b9be8278486b
 
 # ----------------------- #
 #    Jekyll & Plugins     #
@@ -34,7 +35,9 @@ destination: public
 plugins: plugins
 code_dir: downloads/code
 category_dir: blog/categories
-markdown: rdiscount
+markdown: kramdown
+kramdown:
+    toc_levels: 1..3
 rdiscount:
   extensions:
     - autolink
@@ -96,7 +99,7 @@ github_skip_forks: true
 #disqus_show_comment_count: true
 
 # Google Analytics
-google_analytics_tracking_id:
+google_analytics_tracking_id: UA-54108420-1
 
 # Facebook Like
 #facebook_like: false
