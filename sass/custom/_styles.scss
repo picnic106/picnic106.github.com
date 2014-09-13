@@ -1,0 +1,40 @@
+// This File is imported last, and will override other styles in the cascade
+// Add styles here to make changes without digging in too much
+
+/* overrides of the lousy styles from _syntax.scss */
+.CodeRay pre {
+  background: none;
+  color: #000;
+  overflow: auto;
+  white-space: pre;
+  word-wrap: break-word;
+  word-break: normal;
+}
+
+/* fixes issue where the whole line wouldn't get colored in a diff */
+.CodeRay span.insert, .CodeRay span.change, .CodeRay span.delete {
+  width: auto;
+}
+
+.CodeRay pre, p code, li code {
+  border: 1px solid #565656;
+  border-top-color: #cbcbcb;
+  border-left-color: #a5a5a5;
+  border-right-color: #a5a5a5;
+}
+
+.gist .gist-file .gist-data .line-data {
+  font-size: 13px;
+  line-height: 1.45em;
+}
+
+.gist .gist-file .gist-data .file-data .lines {
+  width: 100%;
+}
+
+.bg_red_icon {
+  color: red;
+  font-size: 29px;
+}
+
+@import "custom/coderay";

@@ -7,9 +7,9 @@
 {% capture was_updated %}{{ updated | size }}{% endcapture %}
 
 {% if has_date != '0' %}
-  {% capture time %}<time datetime="{{ date | datetime | date_to_xmlschema }}" {% if updated %}data-updated="true"{% endif %} itemprop="datePublished">{{ post.date| date: "%Y-%m-%d" }}</time>{% endcapture %}
+  {% capture time %}<time datetime="{{ date | datetime | date_to_xmlschema }}" {% if updated %}data-updated="true"{% endif %} itemprop="datePublished">{{ date| date: "%Y-%m-%d %H:%M:%S" }}</time>{% endcapture %}
 {% endif %}
 
 {% if was_updated != '0' %}
-  {% capture updated %}<time datetime="{{ updated | datetime | date_to_xmlschema }}" class="updated" itemprop="dateModified">Updated {{ updated_formatted }}</time>{% endcapture %}
+  {% capture updated %}<time datetime="{{ updated | datetime | date_to_xmlschema }}" class="updated" itemprop="dateModified">Updated {{ updated| date: "%Y-%m-%d" }}</time>{% endcapture %}
 {% else %}{% assign updated = false %}{% endif %}

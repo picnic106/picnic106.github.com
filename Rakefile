@@ -27,6 +27,8 @@ new_post_ext    = "markdown"  # default new post file extension when using the n
 new_page_ext    = "markdown"  # default new page file extension when using the new_page task
 server_port     = "4000"      # port for preview server eg. localhost:4000
 
+#editor          = "open"
+
 if (/cygwin|mswin|mingw|bccwin|wince|emx/ =~ RUBY_PLATFORM) != nil
   puts '## Set the codepage to 65001 for Windows machines'
   `chcp 65001`
@@ -119,6 +121,10 @@ task :new_post, :title do |t, args|
     post.puts "categories: "
     post.puts "---"
   end
+  
+  #if #{editor}
+  #  system "#{editor} #{filename}"
+  #end
 end
 
 # usage rake new_page[my-new-page] or rake new_page[my-new-page.html] or rake new_page (defaults to "new-page.markdown")

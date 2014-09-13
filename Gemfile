@@ -1,4 +1,4 @@
-source "https://rubygems.org"
+source "http://rubygems.org"
 
 group :development do
   gem 'rake', '~> 10.0'
@@ -17,3 +17,5 @@ group :development do
 end
 
 gem 'sinatra', '~> 1.4.2'
+gem 'kramdown'
+gem 'coderay'
