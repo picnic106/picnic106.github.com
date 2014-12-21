@@ -11,5 +11,5 @@
 {% endif %}
 
 {% if was_updated != '0' %}
-  {% capture updated %}<time datetime="{{ updated | datetime | date_to_xmlschema }}" class="updated" itemprop="dateModified">Updated {{ updated| date: "%Y-%m-%d" }}</time>{% endcapture %}
+  {% capture updated %}<time datetime="{{ updated | datetime | date_to_xmlschema }}" class="updated" itemprop="dateModified">Updated {{ updated| updated: "%Y-%m-%d %H:%M:%S" }}</time>{% endcapture %}
 {% else %}{% assign updated = false %}{% endif %}

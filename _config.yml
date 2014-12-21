@@ -1,8 +1,8 @@
-# ----------------------- #
+﻿# ----------------------- #
 #      Main Configs       #
 # ----------------------- #
 
-url: twalksong.com
+url: http://www.twalksong.com
 title: 寧靜致遠
 subtitle: 焚膏油以繼晷，恆兀兀以窮年。
 author: songyj
@@ -37,7 +37,7 @@ code_dir: downloads/code
 category_dir: blog/categories
 markdown: kramdown
 kramdown:
-  toc_levels: 1..3
+#  toc_levels: 1..3
   use_coderay: true
   coderay:
     coderay_line_numbers: table

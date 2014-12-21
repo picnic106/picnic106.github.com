@@ -37,4 +37,16 @@
   font-size: 29px;
 }
 
+
+#markdown-toc:before {
+  content: "目录";
+  font-weight: bold;
+}
+ul#markdown-toc {
+  list-style: none;
+  background-color: white;
+}
+.blog-index #markdown-toc {
+  display: none;
+}
 @import "custom/coderay";

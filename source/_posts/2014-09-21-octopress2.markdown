@@ -1,0 +1,282 @@
+---
+layout: post
+title: "Octopress知识进阶:目录结构"
+date: 2014-09-21 00:28:13 +0800
+comments: true
+categories: [octopress]
+description: "octopress目录结构,jekyll目录结构,jekyll,octopress"
+keywords: octopress目录结构,jekyll目录结构,jekyll,octopress
+---
+
+* any list
+{:toc}
+
+#一、缘起
+总感觉还得写一篇进阶版，将octopress的原理说一说、与jekyll的关系说一说。我觉得应该先说明jekyll是什么，毕竟octopress的精髓是jekyll。
+
+#二、jekyll
+其实一直是想要搭建一个博客，但是碍于最流行的wordperss实在是太过复杂，我只是想要发布我的内容而已，为什么还要干这么多事？要安装php、要安装mysql，还有各种配置，为啥？后来不了了知。  
+**其实还是创造力不够？遇到困难是退缩，而不是迎难而上。如果迎难而上，应该想市面上既然没有这么简单的博客系统，那为什么你不做一个，自己开发一个？**  
+但是github的创始人之一[ Tom Preston-Werner ](http://en.wikipedia.org/wiki/Tom_Preston-Werner)创建了jekyll静态博客生成系统。它的特点是基于内容的博客发布系统而不是数据库。所以安装简单、部署简单、发布简单。所以我一接触到这个系统就对它着迷，立马浮上心头要创建一个自己的博客网站的想法。  
+
+<!-- more -->  
+
+##2.1、jekyll描述  
+[jekyll](http://jekyllcn.com/docs/home/)是Tom Preston-Werner使用ruby写的开放源码的程序，Tom Preston-Werner是GitHub网站的创始人。[GitHub](https://github.com/)是Git仓库网络托管服务，提供所有的分布式版本控制和源代码管理（SCM）功能。Jekyll 是一个简单的博客形态的静态站点生产机器，生成的静态站点可以用于个人、项目、或者组织的网站。它是基于文件的内容管理系统而不是数据库，它有一个模版目录，其中包含原始文本格式的文档，通过 Markdown （或者 Textile） 以及 Liquid 转化成一个完整的可发布的静态网站，你可以发布在任何你喜爱的web服务器上，例如apache、Nginx。Jekyll 也可以运行在 GitHub Page 上，也就是说，你可以使用 GitHub 的服务来搭建你的项目页面、博客或者网站，而且是完全免费的。  
+
+##2.2、jekyll目录结构  
+Jekyll的核心其实是一个文本转换引擎。它的概念其实就是：你用你最喜欢的标记语言来写文章，可以是 Markdown, 也可以是 Textile, 或者就是简单的 HTML, 然后 Jekyll 就会帮你套入一个或一系列的布局中。在整个过程中你可以设置 URL 路径，你的文本在布局中的显示样式等等。这些都可以通过纯文本编辑来实现，最终生成的静态页面就是你的成品了。
+
+一个基本的 Jekyll 网站的目录结构一般是像这样的：  
+
+{% codeblock  Jekyll网站的目录结构%}
+.
+├── _config.yml
+├── _drafts
+|   ├── begin-with-the-crazy-ideas.textile
+|   └── on-simplicity-in-technology.markdown
+├── _includes
+|   ├── footer.html
+|   └── header.html
+├── _layouts
+|   ├── default.html
+|   └── post.html
+├── _posts
+|   ├── 2007-10-29-why-every-programmer-should-play-nethack.textile
+|   └── 2009-04-26-barcamp-boston-4-roundup.textile
+├── _site
+└── index.html  
+{% endcodeblock %}  
+
+
+1.    _config.yml:保存配置数据。很多配置选项都可以直接在命令行中进行设置，但是如果你把那些配置写在这儿，你就不用非要去记住那些命令了。 
+2.     _drafts     :drafts 是未发布的文章。这些文件的格式中都没有 title.MARKUP 数据。
+3.    _includes          :你可以加载这些包含部分到你的布局或者文章中以方便重用。可以用这个标签 {%raw %}{% include file.ext %} {%endraw%}来把文件includes/file.ext 包含进来。本身Jekyll会带博客的头文件和尾部文件。
+4.     _layouts           :layouts 是包裹在文章外部的模板。布局可以在 YAML 头信息中根据不同文章进行选择。 这将在下一个部分进行介绍。标签 {%raw %}{{ content }} {%endraw%}可以将content插入页面中。
+5.   _posts             :这里放的就是你的文章了。文件格式很重要，必须要符合: YEAR-MONTH-DAY-title.MARKUP。 The permalinks 可以在文章中自己定制，但是数据和标记语言都是根据文件名来确定的。
+6.    _site             :一旦 Jekyll 完成转换，就会将生成的页面放在这里（默认）。最好将这个目录放进你的 .gitignore 文件中。
+7.    index.html             :如果这些文件中包含 YAML 头信息 部分，Jekyll 就会自动将它们进行转换。当然，其他的如 .html, .markdown, .md, 或者 .textile 等在你的站点根目录下或者不是以上提到的目录中的文件也会被转换。
+8.    Other Files/Folders             :其他一些未被提及的目录和文件如  css 还有 images 文件夹， favicon.ico 等文件都将被完全拷贝到生成的 site 中。
+
+##2.3、配置  
+Jekyll允许你很轻松的设计你的网站，这很大程度上归功于灵活强大的配置功能。既可以配置在网站根目录下的  _config.yml 文件，也可以作为命令行的标记来配置。 
+ 
+默认配置  
+
+{% codeblock yaml头信息 lang:yaml %}
+source:      .                         #Jekyll 读取文件的路径
+destination: ./_site                   #Jekyll 写入文件的路径
+plugins:     ./_plugins                
+layouts:     ./_layouts          
+include:     ['.htaccess']             #转换时强制包含某些文件、文件夹。.htaccess 是个典型的例子，因为默认排除 . 开头的文件。
+exclude:     []
+keep_files:  ['.git','.svn']
+timezone:    nil
+encoding:    nil
+
+future:      true
+show_drafts: nil
+limit_posts: 0
+pygments:    true
+
+relative_permalinks: true
+
+permalink:     date
+paginate_path: 'page:num'
+
+markdown:      maruku
+markdown_ext:  markdown,mkd,mkdn,md
+textile_ext:   textile
+
+excerpt_separator: "\n\n"
+
+safe:        false
+watch:       false    # deprecated
+server:      false    # deprecated
+host:        0.0.0.0                           #监听所给的主机名
+port:        4000                              #监听所给的端口
+baseurl:     /                                 #网站的根路径
+url:         http://localhost:4000
+lsi:         false
+
+maruku:
+  use_tex:    false
+  use_divs:   false
+  png_engine: blahtex
+  png_dir:    images/latex
+  png_url:    /images/latex
+
+rdiscount:
+  extensions: []
+
+redcarpet:
+  extensions: []
+
+kramdown:
+  auto_ids: true
+  footnote_nr: 1
+  entity_output: as_char
+  toc_levels: 1..6
+  smart_quotes: lsquo,rsquo,ldquo,rdquo
+  use_coderay: false
+
+  coderay:
+    coderay_wrap: div
+    coderay_line_numbers: inline
+    coderay_line_numbers_start: 1
+    coderay_tab_width: 4
+    coderay_bold_every: 10
+    coderay_css: style
+
+redcloth:
+  hard_breaks: true
+{% endcodeblock %}  
+
+
+##2.4、头信息  
+正是头信息开始让 Jekyll 变的很酷。任何只要包含 [YAML](http://yaml.org/) 头信息的文件在 Jekyll 中都能被当做一个特殊的文件来处理。头信息必须在文件的开始部分，并且需要按照 YAML 的格式写在两行三虚线之间。下面是一个基本的例子：  
+
+{% codeblock yaml头信息 lang:yaml %}
+
+layout: post
+title: "Octopress知识进阶"
+date: 2014-09-21 00:28:13 +0800
+comments: true
+categories: [octopress]
+description: "Octopress知识进阶"
+keywords: octopress
+
+{% endcodeblock %}  
+
+
+在这两行的三虚线之间，你可以设置一些预定义的变量（下面这个例子可以作为参考）或者甚至创建一个你自己定义的变量。这样在接下来的文件和任意模板中或者在包含这些页面或博客的模板中都可以通过使用 Liquid 标签来访问这些变量。  
+
+#三、octopress  
+现在知道有这么一个静态网站生成器叫jekyll，但是这个还是有点复杂，因为你在写博客之前，你需要先设计你博客的样式，例如头显示什么，尾巴显示什么，边框是什么样子，然后用什么技术，写大量的js大量的css。我们还是要过多关注于博客的样子，博客的目录，而不是内容。所以我想有没有一个托管程序，可以先都帮我们设置好了，安装样式也很简单，不需要过多设置，我拿过来直接写文章就可以。所以网上搜，还真有，而且挺多，最终选择使用[octopress](http://octopress.org/)。  
+
+##3.1、octopress描述  
+octopress是Brandon Mathis为jekyll而设计的一个框架。使用jekyll你不得不写你自己的html模板，css,js,设置好自己的配置，但是octopress托管所有，简单的安装依赖软件，然后你就可以开始写文章了。  
+
+
+##3.2、octopress目录结构  
+  
+  
+{% codeblock octopress目录结构   %}
+octopress
+├── .themes
+|    └──classic
+|        ├── sass  
+|        └── source		
+├── _deploy
+├── assets
+├── blog
+├── images
+├── javascripts
+├── plugins
+|   ├── blockquote.rb
+|	├── config_tag.rb
+|	├── haml.rb
+|	├── .....
+|	└── video_tag.rb
+├── public
+├── sass
+|	├── base
+|	├── custom
+|	├── partials
+|	├── parts
+|	├── plugins
+|	├── _base.scss
+|	├── _partials.scss
+|	├── _parts.scss
+|	├── _plugins.scss
+|	└── screen.scss
+├── source
+|	├── about
+|	|   └── index.markdown
+|	├── _includes
+|	|   ├── asides
+|	|   ├── custom
+|	|   |    ├── asides
+|	|	|	 |    └── aboutme.html
+|	|	|	 ├── footer.html
+|	|	|	 ├── head.html
+|	|	|	 ├── navigation.html
+|	|   |    └── header.html
+|	|   ├── post
+|	|	|   ├── date.html  
+|	|	|	├── categories.html
+|	|	|	└── duoshuo.html
+|	|	├── after_footer.html
+|	|	├── archive_post.html
+|	|	├── article.html
+|	|	├── footer.html
+|	|	├── google_analytics.html
+|	|	├── head.html
+|	|	├── header.html
+|	|	└── navigation.html
+|	├── _layouts
+|	|   ├── category_index.html
+|	|   ├── default.html
+|	|	├── post.html
+|	|   └── page.html
+|	├── _posts
+|	|   ├── 2007-10-29-why-every-programmer-should-play-nethack.textile
+|	|   └── 2009-04-26-barcamp-boston-4-roundup.textile
+|	├── images
+|	├── javascripts
+|	├── stylesheets
+|	└── index.html   
+├── _config.yml
+├── config.rb
+├── Gemfile
+└── Rakefile
+{% endcodeblock %}
+
+对比jekyll的目录结构，发现是将jekyll的目录结构包含与octopress的目录结构中，并增加了布局、包含、js、css文件。  
+以下是octopress目录结构的一些总结：  
+
+1.  jekyll中的_config.yml文件移到octopress的根目录下，且增加了新内容。在Octopress 的_config.yml中有三个部分的[配置](http://octopress.org/docs/configuring/)。我自己博客的配置如下(只展示我修改过的地方)：  
+
+{% codeblock _config.yml lang:yaml%}
+#第一部分主要配置
+url: twalksong.com
+title: 寧靜致遠
+subtitle: 焚膏油以繼晷，恆兀兀以窮年。
+author: songyj
+simple_search: http://www.baidu.com/
+description: 这是知识积累与生命哲思一同迸发的地方。
+email: picnic106@163.com
+
+#第二部分插件
+markdown: kramdown
+kramdown:
+# toc_levels: 1..3
+  use_coderay: true
+  coderay:
+	coderay_line_numbers: table
+	coderay_css: class
+
+excerpt_link: "阅读全文 &rarr;"  # "Continue reading" link text at the bottom of excerpted articles
+
+#第三部分社交帐号配置，例如Github ，Twitter ，Facebook 等
+github_user: picnic106
+github_repo_count: 1
+github_show_profile_link: true
+github_skip_forks: true
+google_analytics_tracking_id: 
+duoshuo_comments: true
+duoshuo_short_name: 
+{% endcodeblock %}
+
+
+2.  .themes文件夹用于放置从github库下载下来的octopress的皮肤。这个文件夹下具体的作用还没有做详细的调查，这里暂且不说。  
+3.  _deploy文件夹放置部署到github或者其他托管网站的源文件。即使用·rake deploy·命令之后，会同步更新此文件夹。
+4.  plugins文件夹放置ruby插件
+5.  public文件夹放置本地预览所用的源代码。即用·rake preview·命令之后，会在此文件夹生成源代码。
+6.  sass文件夹用于放置样式表，目前对这个文件夹没有研究，暂且不说，只知道当安装.themes中的皮肤时会覆盖此文件夹相关文档。
+7.  source文件夹放置如同jekyll的目录。平常撰写博客，基本上在source文件夹下的_post文件夹下写，即运行·rake new_post·命令会在source/_post文件夹下生成文件。
+8.  Rakefile文件用于编写Ruby的make命令。基本上cotopress有如下命令：install、generate、preview、new_post、new_page、isolate、update_style、update_source、deploy、rsync、push、set_root_dir、setup_github_pages。 
+
+##3.3、octopress其他
+其实目前对octopress熟悉的就这些，代表自己对octopress其实还很陌生，只会用而已。另外看到octopress中文文档比较少，计划利用业余时间翻译octopress上的博客文章。  
+

@@ -4,7 +4,7 @@ title: "使用Octopress和github搭建个人博客"
 date: 2014-08-14 16:40:01
 comments: true
 categories: [Octopress, github]
-dePythonion: "我的第一篇Octopress博客" 
+description: "我的第一篇Octopress博客" 
 keywords: Octopress,github,jekyll
 ---
 
