@@ -1,0 +1,632 @@
+<!doctype html>
+<html class="theme-next use-motion theme-next-mist">
+<head>
+  
+
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+  <link rel="stylesheet" type="text/css" href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5"/>
+
+
+
+
+<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.4.5.1"/>
+
+
+    <meta name="description" content="java | andriod | python | ruby" />
+
+
+
+  <meta name="keywords" content="octopress," />
+
+
+
+
+
+  <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1" />
+
+
+<meta name="description" content="使用github的用户或者组织页假如你想要从http://username.github.io拥有一个博客(虽然你也有自己的域名)，就使用这个方法。在过去github使用http://username.github.com作为域名,但是正在使用io扩展代替Pages。  
+创建一个新的github库，将这个库的名字命名为这种格式的：username.github.io，username是你的git">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【翻译】部署到Github Pages">
+<meta property="og:url" content="http://twalksong.com/2014/10/03/deploying-to-github-pages/index.html">
+<meta property="og:site_name" content="宁静的心">
+<meta property="og:description" content="使用github的用户或者组织页假如你想要从http://username.github.io拥有一个博客(虽然你也有自己的域名)，就使用这个方法。在过去github使用http://username.github.com作为域名,但是正在使用io扩展代替Pages。  
+创建一个新的github库，将这个库的名字命名为这种格式的：username.github.io，username是你的git">
+<meta property="og:updated_time" content="2015-08-30T03:59:40.777Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="【翻译】部署到Github Pages">
+<meta name="twitter:description" content="使用github的用户或者组织页假如你想要从http://username.github.io拥有一个博客(虽然你也有自己的域名)，就使用这个方法。在过去github使用http://username.github.com作为域名,但是正在使用io扩展代替Pages。  
+创建一个新的github库，将这个库的名字命名为这种格式的：username.github.io，username是你的git">
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: 'hide'
+  };
+</script>
+
+  <title> 【翻译】部署到Github Pages | 宁静的心 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  <!--[if lte IE 8]>
+  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
+    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
+           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
+           style='margin-left:auto;margin-right:auto;display: block;'/>
+    </a>
+  </div>
+<![endif]-->
+  
+
+
+
+  <div class="container one-column page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><h1 class="site-meta">
+  <span class="logo-line-before"><i></i></span>
+  <a href="/" class="brand" rel="start">
+      <span class="logo">
+        <i class="icon-next-logo"></i>
+      </span>
+      <span class="site-title">宁静的心</span>
+  </a>
+  <span class="logo-line-after"><i></i></span>
+</h1>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu ">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            <i class="menu-item-icon icon-next-home"></i> <br />
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            <i class="menu-item-icon icon-next-archives"></i> <br />
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            <i class="menu-item-icon icon-next-tags"></i> <br />
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            <i class="menu-item-icon icon-next-about"></i> <br />
+            关于
+          </a>
+        </li>
+      
+
+      
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div id="content" class="content"> 
+
+  <div id="posts" class="posts-expand">
+    
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
+              【翻译】部署到Github Pages
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于
+          <time itemprop="dateCreated" datetime="2014-10-03T01:19:23+08:00" content="2014-10-03">
+            2014-10-03
+          </time>
+        </span>
+
+        
+
+        
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        <span itemprop="articleBody"><h2 id="使用github的用户或者组织页">使用github的用户或者组织页</h2><p>假如你想要从<code>http://username.github.io</code>拥有一个博客(虽然你也有<a href="http:///blog/2014/10/03/deploying-to-github-pages/#section" target="_blank" rel="external">自己的域名</a>)，就使用这个方法。在过去github使用<code>http://username.github.com</code>作为域名,但是正在使用io扩展代替Pages。  </p>
+<p>创建一个<a href="https://github.com/new" target="_blank" rel="external">新的github库</a>，将这个库的名字命名为这种格式的：<code>username.github.io</code>，username是你的github用户名或者组织名。  </p>
+<p>Github Pages为用户以及组织使用主分支就像web服务器使用公共目录，在你的<a href="http://username.github.io网页提供文件。但是你想要在source分支下工作，例如编辑博客文章，然后提交生成后的博客内容到主分支。Octopress有一个帮助你这样设置好的配置命令。" target="_blank" rel="external">http://username.github.io网页提供文件。但是你想要在source分支下工作，例如编辑博客文章，然后提交生成后的博客内容到主分支。Octopress有一个帮助你这样设置好的配置命令。</a>  </p>
+<a id="more"></a> 
+<figure class="highlight bash"><figcaption><span>github pages配置</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rake setup_github_pages</span><br></pre></td></tr></table></figure>    
+<p>这个rake命令将询问你的github库url。复制来自于你新创建好的库的ssl或者https的url(例如：<code>git@github.com:username/username.github.io.git</code>)，然后作为回应粘贴到里面。  </p>
+<p>这个命令将会做如下动作：  </p>
+<ol>
+<li>询问以及存储你的github pages的库url。</li>
+<li>将imathis/octopress远程点的名称’origin’修改为’octopress’。</li>
+<li>加入你的github pages库作为默认的origin远程点。  </li>
+<li>切换活动分支从主分支到源分支。  </li>
+<li>根据你的库url配置你的博客url。  </li>
+<li>在_deploy文件夹设置一个主分支用于部署。      </li>
+</ol>
+<p>下一步运行：  </p>
+<figure class="highlight bash"><figcaption><span>github rake deploy</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">rake generate</span><br><span class="line">rake deploy</span><br></pre></td></tr></table></figure>  
+<p>这个将生成你的博客，复制生成好的文件到<code>_deploy/</code>,然后将他们加入到git，提交以及推送他们到github的主分支。在之后几秒钟之内，你会收到一封来自与github的email，告诉你你的提交已经被接收以及将被部署到你的站点。  </p>
+<p><strong>不要忘记</strong>将你的博客开发代码提交到源分支。  </p>
+<figure class="highlight bash"><figcaption><span>github 提交到源分支</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git add .</span><br><span class="line">git commit -m <span class="string">'your message'</span></span><br><span class="line">git push origin <span class="built_in">source</span></span><br></pre></td></tr></table></figure>   
+<p>注意：使用新库，github会设置基于你第一次推送的分支作为你的默认的分支，然后它将存放你生成的内容。假如你使用github部署你的博客出现问题，点击你库的管理面板，然后确认主分支是默认的分支。  </p>
+<p>更多关于你第一篇文章的信息，请阅读<a href="http://octopress.org/docs/blogging/" target="_blank" rel="external">博客基本设置</a>。  </p>
+<h2 id="使用github项目页（gh-pages）">使用github项目页（gh-pages）</h2><p>github项目页服务允许你为你的开源项目形成一个站点。github将寻找你库里面的<code>gh-pages</code>分支，然后确定在url（例如：<code>http://username.github.io/project</code>）的内容是可用的。  </p>
+<p>底下能设置octopress站点到gh-pages库：  </p>
+<figure class="highlight bash"><figcaption><span>github pages配置</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rake setup_github_pages</span><br></pre></td></tr></table></figure>    
+<p>有如下几个步骤：  </p>
+<ol>
+<li>询问你项目库的url。</li>
+<li>将imathis/octopress远程点的名称’origin’修改为’octopress’。</li>
+<li>在_deploy文件夹设置一个gh-pages分支用于部署。      </li>
+</ol>
+<p>下一步运行：  </p>
+<figure class="highlight bash"><figcaption><span>github rake deploy</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">rake generate</span><br><span class="line">rake deploy</span><br></pre></td></tr></table></figure>  
+<p>这个将生成你的博客，复制生成好的文件到<code>_deploy/</code>,然后将他们加入到git，提交以及推送他们到github的主分支。在之后几秒钟之内，你会收到一封来自与github的email，告诉你你的提交已经被接收以及将被部署到你的站点。  </p>
+<p>现在你已经有一个地方用于提交生成好的内容，但是你也应该设置一个库用于存储博客的源代码。在你为博客源代码设置好一个库之后，把如下加到origin的远程点。  </p>
+<figure class="highlight ruby"><figcaption><span>添加origin远程点</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git remote add origin (your repo url)</span><br><span class="line"><span class="comment">#  set your new origin as the default branch</span></span><br><span class="line">git config branch.master.remote origin</span><br></pre></td></tr></table></figure>    
+<p>目前位置你可以推送你所有的改变了。  </p>
+<h2 id="自定义域名">自定义域名</h2><p>第一步在你的博客源代码路径新建一个名为cname的文件。  </p>
+<figure class="highlight bash"><figcaption><span>新建cname</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">'your-domain.com'</span> &gt;&gt; <span class="built_in">source</span>/CNAME</span><br><span class="line"><span class="comment">#  OR</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">'www.your-domain.com'</span> &gt;&gt; <span class="built_in">source</span>/CNAME</span><br></pre></td></tr></table></figure>     
+<p>下一步你需要访问你的域名注册商或者DNS主机，然后在你的域名字加一条记录。  </p>
+<ul>
+<li>创建一个子域名，例如：<code>www.example.com</code>,你应该很简单的创建一个cname记录点到<code>charlie.github.io.</code>。  </li>
+<li>假如你使用顶级域名，例如：<code>example.com</code>，你必须使用一个A记录到<code>192.30.252.153</code>或者<code>192.30.252.154</code>。  </li>
+</ul>
+<p><strong>不要使用顶级域名创建一条CNAME记录</strong>！！它也许在其他服务例如邮件有不良的副作用。许多DNS服务允许你在TLD上创建CNAME,虽然你不会。记住dns的改变也许需要一整天才会生效，所以需要耐心。  </p>
+<p>源：<a href="https://help.github.com/categories/github-pages-basics/" target="_blank" rel="external">github pages向导</a>  </p>
+<p>翻译url:<a href="http://octopress.org/docs/deploying/github/" target="_blank" rel="external">http://octopress.org/docs/deploying/github/</a>。</p>
+</span>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/octopress/" rel="tag">#octopress</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2014/10/03/using-octopress-with-heroku/" rel="prev">【翻译】部署到Heroku</a>
+            
+          </div>
+
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2014/10/03/installing-ruby-with-rvm/" rel="next">【翻译】使用RVM安装ruby</a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+ </div>
+
+        
+
+        
+          <div class="comments" id="comments">
+            
+          </div>
+        
+      </div>
+
+      
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" src="/images/touxiang.jpg" alt="宋英杰" itemprop="image"/>
+          <p class="site-author-name" itemprop="name">宋英杰</p>
+        </div>
+        <p class="site-description motion-element" itemprop="description">java | andriod | python | ruby</p>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">35</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          <div class="site-state-item site-state-categories">
+            
+              <span class="site-state-item-count">0</span>
+              <span class="site-state-item-name">分类</span>
+              
+          </div>
+
+          <div class="site-state-item site-state-tags">
+            <a href="/tags">
+              <span class="site-state-item-count">12</span>
+              <span class="site-state-item-name">标签</span>
+              </a>
+          </div>
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator"></div>
+          <div class="post-toc">
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#使用github的用户或者组织页"><span class="nav-number">1.</span> <span class="nav-text">使用github的用户或者组织页</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用github项目页（gh-pages）"><span class="nav-number">2.</span> <span class="nav-text">使用github项目页（gh-pages）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#自定义域名"><span class="nav-number">3.</span> <span class="nav-text">自定义域名</span></a></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator"></div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner"> <div class="copyright" >
+  
+  &copy; &nbsp; 
+  <span itemprop="copyrightYear">2015</span>
+  <span class="with-love">
+    <i class="icon-next-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">宋英杰</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+ </div>
+    </footer>
+
+    <div class="back-to-top"></div>
+  </div>
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  
+  
+    
+    
+
+  
+
+
+  
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript" src="/js/fancy-box.js?v=0.4.5.1"></script>
+
+
+  <script type="text/javascript" src="/js/helpers.js?v=0.4.5.1"></script>
+  
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/js/motion_global.js?v=0.4.5.1" id="motion.global"></script>
+
+
+
+
+  <script type="text/javascript" src="/js/nav-toggle.js?v=0.4.5.1"></script>
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  
+<script type="text/javascript" src="/js/bootstrap.scrollspy.js?v=0.4.5.1" id="bootstrap.scrollspy.custom"></script>
+
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 0.4 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    var $tocContent = $('.post-toc-content');
+    if (isDesktop() && CONFIG.sidebar === 'post') {
+      if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+        displaySidebar();
+      }
+    }
+  });
+</script>
+
+
+
+  <script type="text/javascript">
+    $(document).ready(function () {
+      if (CONFIG.sidebar === 'always') {
+        displaySidebar();
+      }
+      if (isMobile()) {
+        FastClick.attach(document.body);
+      }
+    });
+  </script>
+
+  
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/lazyload.js"></script>
+  <script type="text/javascript">
+    $(function () {
+      $("#posts").find('img').lazyload({
+        placeholder: "/images/loading.gif",
+        effect: "fadeIn"
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,614 @@
+<!doctype html>
+<html class="theme-next use-motion theme-next-mist">
+<head>
+  
+
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+  <link rel="stylesheet" type="text/css" href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5"/>
+
+
+
+
+<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.4.5.1"/>
+
+
+    <meta name="description" content="java | andriod | python | ruby" />
+
+
+
+  <meta name="keywords" content="octopress," />
+
+
+
+
+
+  <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1" />
+
+
+<meta name="description" content="博客基础Octopress提供一些创建文章和页面的rake任务，而这些文章和页面会根据jekyll的命名规则和元数据预先装载。它也会为你的文章生成基于feed的分类和全局(你能在atom.xml以及blog/categories/&amp;lt;category&amp;gt;/atom.xml发现他们)。  
+博客文章博客文章必须被保存在source/_posts文件夹，而且必须按照jekyll的命名规则来命名">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【翻译】博客基础">
+<meta property="og:url" content="http://twalksong.com/2014/10/07/blogging-basics/index.html">
+<meta property="og:site_name" content="宁静的心">
+<meta property="og:description" content="博客基础Octopress提供一些创建文章和页面的rake任务，而这些文章和页面会根据jekyll的命名规则和元数据预先装载。它也会为你的文章生成基于feed的分类和全局(你能在atom.xml以及blog/categories/&amp;lt;category&amp;gt;/atom.xml发现他们)。  
+博客文章博客文章必须被保存在source/_posts文件夹，而且必须按照jekyll的命名规则来命名">
+<meta property="og:updated_time" content="2014-10-19T15:40:41.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="【翻译】博客基础">
+<meta name="twitter:description" content="博客基础Octopress提供一些创建文章和页面的rake任务，而这些文章和页面会根据jekyll的命名规则和元数据预先装载。它也会为你的文章生成基于feed的分类和全局(你能在atom.xml以及blog/categories/&amp;lt;category&amp;gt;/atom.xml发现他们)。  
+博客文章博客文章必须被保存在source/_posts文件夹，而且必须按照jekyll的命名规则来命名">
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: 'hide'
+  };
+</script>
+
+  <title> 【翻译】博客基础 | 宁静的心 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  <!--[if lte IE 8]>
+  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
+    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
+           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
+           style='margin-left:auto;margin-right:auto;display: block;'/>
+    </a>
+  </div>
+<![endif]-->
+  
+
+
+
+  <div class="container one-column page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><h1 class="site-meta">
+  <span class="logo-line-before"><i></i></span>
+  <a href="/" class="brand" rel="start">
+      <span class="logo">
+        <i class="icon-next-logo"></i>
+      </span>
+      <span class="site-title">宁静的心</span>
+  </a>
+  <span class="logo-line-after"><i></i></span>
+</h1>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu ">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            <i class="menu-item-icon icon-next-home"></i> <br />
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            <i class="menu-item-icon icon-next-archives"></i> <br />
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            <i class="menu-item-icon icon-next-tags"></i> <br />
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            <i class="menu-item-icon icon-next-about"></i> <br />
+            关于
+          </a>
+        </li>
+      
+
+      
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div id="content" class="content"> 
+
+  <div id="posts" class="posts-expand">
+    
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
+              【翻译】博客基础
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于
+          <time itemprop="dateCreated" datetime="2014-10-07T00:00:41+08:00" content="2014-10-07">
+            2014-10-07
+          </time>
+        </span>
+
+        
+
+        
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        <span itemprop="articleBody"><h1 id="博客基础">博客基础</h1><p>Octopress提供一些创建文章和页面的rake任务，而这些文章和页面会根据jekyll的命名规则和元数据预先装载。它也会为你的文章生成基于feed的分类和全局(你能在<code>atom.xml</code>以及<code>blog/categories/&lt;category&gt;/atom.xml</code>发现他们)。  </p>
+<h2 id="博客文章">博客文章</h2><p>博客文章必须被保存在<code>source/_posts</code>文件夹，而且必须按照jekyll的命名规则来命名：<code>YYYY-MM-DD-post-title.markdown</code>。这个文件的名字将被解析做为url的级数，（译者注：例如文件名字是<code>2014-10-10-test.markdown</code>，url将是：<code>/blog/2014/10/10/test</code>,其实这个url解析设置是可以修改的），文章名称中间的时间帮助文件区别和决定对文章排序顺序。  </p>
+<a id="more"></a>  
+<p>Octopress    提供一个rake任务，这个任务使用一个正确的命名约定以及合理的yaml元数据来创建新的文章。  </p>
+<p><strong>语法</strong></p>
+<figure class="highlight bash"><figcaption><span>new_post</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rake new_post[<span class="string">"title"</span>]</span><br></pre></td></tr></table></figure>  
+<p><code>new_post</code>当创建一个文件名时，需要一个自然的文件名，同时会剥离不良的url字符。新文章的默认文件扩展名是<code>markdown</code>，但是你能在<code>Rakefile</code>里配置它。  </p>
+<p><strong>例子</strong>  </p>
+<figure class="highlight bash"><figcaption><span>new_post</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">rake new_post[<span class="string">"Zombie Ninjas Attack: A survivor's retrospective"</span>]</span><br><span class="line"><span class="comment">#  创建 source/_posts/2011-07-03-zombie-ninjas-attack-a-survivors-retrospective.markdown</span></span><br></pre></td></tr></table></figure>    
+<p>文件名决定你的访问url。使用默认的<a href="http://jekyllcn.com/docs/permalinks/" target="_blank" rel="external">永久链接</a>设置，访问地址会像如下：<code>http://site.com/blog/2011/07/03/zombie-ninjas-attack-a-survivors-retrospective/index.html</code>。  </p>
+<p>在一个文本编辑器里打开一篇文章，你会在文章最前面看到一块<a href="http://jekyllcn.com/docs/frontmatter/" target="_blank" rel="external">yaml头信息</a>，这块代码告诉Jekyll如何处理文章和页面。   </p>
+<figure class="highlight"><figcaption><span>yaml头信息</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">layout: post&#10;title: &#34;Zombie Ninjas Attack: A survivor&#39;s retrospective&#34;&#10;date: 2011-07-03 5:59&#10;comments: true&#10;external-url:&#10;tags:</span><br></pre></td></tr></table></figure>    
+<p>在这里，你可以给你的文章关掉评论或者分类。假如你的文章有多个作者，你可以加<code>author: Your Name</code>到头信息的元数据。假如你正在做草稿，你能加<code>published: false</code>到头信息，预防在生成博客的时候，也将草稿生成文章。假如你想发布一个<code>linklog</code>形式的文章(博客条目指向外部链接)，只需简单的加一个<code>external-url</code>到你的文章。  </p>
+<p>你能加一个或者多个分类：  </p>
+<figure class="highlight"><figcaption><span>yaml头信息</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">#  One category&#10;tags: Sass&#10; &#10;#  Multiple categories example 1&#10;tags: [CSS3, Sass, Media Queries]&#10; &#10;#  Multiple categories example 2&#10;tags:&#10;- CSS3&#10;- Sass&#10;- Media Queries</span><br></pre></td></tr></table></figure>    
+<h2 id="新页面">新页面</h2><p>你能在你博客源目录的任何地方加一个新页面，它们都会被jekyll解析。URL将正确的指向文件路径，所以<code>about.markdown</code>将变成<code>site.com/about.html</code>。假如你喜欢你的url是<code>site.com/about/</code>，那么你要创建的页面为<code>about/index.markdown</code>。也有一个很简单的rake任务来生成页面。  </p>
+<figure class="highlight bash"><figcaption><span>new_page</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">rake new_page[super-awesome]</span><br><span class="line"><span class="comment">#  creates /source/super-awesome/index.markdown</span></span><br><span class="line"> </span><br><span class="line">rake new_page[super-awesome/page.html]</span><br><span class="line"><span class="comment">#  creates /source/super-awesome/page.html</span></span><br></pre></td></tr></table></figure>    
+<p>跟创建新文章的任务一样，默认的扩展名也是<code>markdown</code>，但是你能在<code>Rakefile</code>文件里配置它。一个刚生成的页面可能是这样子的：  </p>
+<figure class="highlight"><figcaption><span>new_page</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">layout: page&#10;title: &#34;Super Awesome&#34;&#10;date: 2011-07-03 5:59&#10;comments: true&#10;sharing: true&#10;footer: true</span><br></pre></td></tr></table></figure>    
+<p>标题是从文件名衍生出来的，所以你可能想改变它。这根生成一个新文章是一样的，除了不包含分类，你可以切换分享以及评论或者干脆移除底部。假如你不想在页面显示时间，你从<code>yaml</code>移除它就是了。    </p>
+<h2 id="内容">内容</h2><p>网页和文章将被你网站配置文件指定的markup引擎渲染。此外你能使用在 <a href="http://jekyllcn.com/docs/variables/" target="_blank" rel="external">Jekyll 文章</a>里描述的任何 <a href="https://github.com/Shopify/liquid/wiki/Liquid-for-Designers" target="_blank" rel="external">liquid模板功能</a>。  </p>
+<p>插入一个<code>&lt;!-- more --&gt;</code>标签到你的文章，将会预防这篇文章这个标签底下的部分显示在你的博客首页。一个<code>Continue →</code>的按钮链接到整篇文章。  </p>
+<h2 id="生成和预览">生成和预览</h2><figure class="highlight bash"><figcaption><span>生成和预览</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">rake generate   <span class="comment"># Generates posts and pages into the public directory</span></span><br><span class="line">rake watch      <span class="comment"># Watches source/ and sass/ for changes and regenerates</span></span><br><span class="line">rake preview    <span class="comment"># Watches, and mounts a webserver at http://localhost:4000</span></span><br></pre></td></tr></table></figure>    
+<p>假如你不想发布这篇文章，而又想生成博客。你可以加<code>published: false</code>，到你文章的YAML头。你可以通过<code>rake preview</code>在你本地服务器预览这篇文章，但是不会被发布，通过<code>rake generate</code>这个命令。  </p>
+<p>使用<code>rake preview</code>命令是很棒的，因为可以预览。但是假如你有一个<a href="http://pow.cx/" target="_blank" rel="external">POW</a>服务，你能像下面这样设置Octopress：  </p>
+<figure class="highlight bash"><figcaption><span>POW设置Octopress</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~/.pow</span><br><span class="line">ln <span class="operator">-s</span> /path/to/octopress octopress</span><br><span class="line"><span class="built_in">cd</span> -</span><br></pre></td></tr></table></figure>    
+<p>现在你安装好POW，你只要运行<code>rake watch</code>和装载<code>http://octopress.dev</code>就可以了，代替使用<code>rake preview</code>命令。  </p>
+<p>也可以看<a href="http://octopress.org/docs/blogging/code/" target="_blank" rel="external">分享代码片段</a>和<a href="http://octopress.org/docs/blogging/plugins/" target="_blank" rel="external">博客插件</a>。</p>
+<p>翻译url:<a href="http://octopress.org/docs/blogging/" target="_blank" rel="external">http://octopress.org/docs/blogging/</a>。</p>
+</span>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/octopress/" rel="tag">#octopress</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2014/10/07/fuqizhijiandeqingganjishu/" rel="prev">夫妻之间的感情催化剂-争吵后的谈心</a>
+            
+          </div>
+
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2014/10/04/configuring-octopress/" rel="next">【翻译】Octopress配置</a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+ </div>
+
+        
+
+        
+          <div class="comments" id="comments">
+            
+          </div>
+        
+      </div>
+
+      
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" src="/images/touxiang.jpg" alt="宋英杰" itemprop="image"/>
+          <p class="site-author-name" itemprop="name">宋英杰</p>
+        </div>
+        <p class="site-description motion-element" itemprop="description">java | andriod | python | ruby</p>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">35</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          <div class="site-state-item site-state-categories">
+            
+              <span class="site-state-item-count">0</span>
+              <span class="site-state-item-name">分类</span>
+              
+          </div>
+
+          <div class="site-state-item site-state-tags">
+            <a href="/tags">
+              <span class="site-state-item-count">12</span>
+              <span class="site-state-item-name">标签</span>
+              </a>
+          </div>
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator"></div>
+          <div class="post-toc">
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#博客基础"><span class="nav-number">1.</span> <span class="nav-text">博客基础</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#博客文章"><span class="nav-number">1.1.</span> <span class="nav-text">博客文章</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#新页面"><span class="nav-number">1.2.</span> <span class="nav-text">新页面</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#内容"><span class="nav-number">1.3.</span> <span class="nav-text">内容</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#生成和预览"><span class="nav-number">1.4.</span> <span class="nav-text">生成和预览</span></a></li></ol></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator"></div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner"> <div class="copyright" >
+  
+  &copy; &nbsp; 
+  <span itemprop="copyrightYear">2015</span>
+  <span class="with-love">
+    <i class="icon-next-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">宋英杰</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+ </div>
+    </footer>
+
+    <div class="back-to-top"></div>
+  </div>
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  
+  
+    
+    
+
+  
+
+
+  
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript" src="/js/fancy-box.js?v=0.4.5.1"></script>
+
+
+  <script type="text/javascript" src="/js/helpers.js?v=0.4.5.1"></script>
+  
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/js/motion_global.js?v=0.4.5.1" id="motion.global"></script>
+
+
+
+
+  <script type="text/javascript" src="/js/nav-toggle.js?v=0.4.5.1"></script>
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  
+<script type="text/javascript" src="/js/bootstrap.scrollspy.js?v=0.4.5.1" id="bootstrap.scrollspy.custom"></script>
+
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 0.4 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    var $tocContent = $('.post-toc-content');
+    if (isDesktop() && CONFIG.sidebar === 'post') {
+      if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+        displaySidebar();
+      }
+    }
+  });
+</script>
+
+
+
+  <script type="text/javascript">
+    $(document).ready(function () {
+      if (CONFIG.sidebar === 'always') {
+        displaySidebar();
+      }
+      if (isMobile()) {
+        FastClick.attach(document.body);
+      }
+    });
+  </script>
+
+  
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/lazyload.js"></script>
+  <script type="text/javascript">
+    $(function () {
+      $("#posts").find('img').lazyload({
+        placeholder: "/images/loading.gif",
+        effect: "fadeIn"
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,754 @@
+<!doctype html>
+<html class="theme-next use-motion theme-next-mist">
+<head>
+  
+
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+  <link rel="stylesheet" type="text/css" href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5"/>
+
+
+
+
+<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.4.5.1"/>
+
+
+    <meta name="description" content="java | andriod | python | ruby" />
+
+
+
+  <meta name="keywords" content="Octopress,github," />
+
+
+
+
+
+  <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1" />
+
+
+<meta name="description" content="一、缘起&amp;emsp;&amp;emsp;一直想搭建一个自己的博客，用于技术积累的记录。例如有些技术问题会一而再、再而三的出现，但是还是每次要上网查找或者花时间回忆解决办法；例如在项目管理中出现的一些感悟，可能是一闪而过，如果不记录下来下次很难再想起来。虽然目前自己有一个技术积累库，记录在word文档里，有两个缺点，一是查找不方便，第二个是不能用于其他码农的相互借鉴：我的解决办法是不是最优解决办法？我的想法">
+<meta property="og:type" content="article">
+<meta property="og:title" content="使用Octopress和github搭建个人博客">
+<meta property="og:url" content="http://twalksong.com/2014/08/14/my-first-octopress-blog/index.html">
+<meta property="og:site_name" content="宁静的心">
+<meta property="og:description" content="一、缘起&amp;emsp;&amp;emsp;一直想搭建一个自己的博客，用于技术积累的记录。例如有些技术问题会一而再、再而三的出现，但是还是每次要上网查找或者花时间回忆解决办法；例如在项目管理中出现的一些感悟，可能是一闪而过，如果不记录下来下次很难再想起来。虽然目前自己有一个技术积累库，记录在word文档里，有两个缺点，一是查找不方便，第二个是不能用于其他码农的相互借鉴：我的解决办法是不是最优解决办法？我的想法">
+<meta property="og:image" content="http://twalksong.com/images/ruby/rubyinstaller.jpg">
+<meta property="og:image" content="http://twalksong.com/images/ruby/rubyin.jpg">
+<meta property="og:image" content="http://twalksong.com/images/ruby/github2.jpg">
+<meta property="og:image" content="http://twalksong.com/images/ruby/github3.jpg">
+<meta property="og:image" content="http://twalksong.com/images/ruby/github4.jpg">
+<meta property="og:image" content="http://twalksong.com/images/ruby/git4.jpg">
+<meta property="og:image" content="http://twalksong.com/images/ruby/blog.jpg">
+<meta property="og:image" content="http://twalksong.com/images/ruby/zhsz.jpg">
+<meta property="og:image" content="http://twalksong.com/images/ruby/sshkey.jpg">
+<meta property="og:image" content="http://twalksong.com/images/ruby/sshsr.jpg">
+<meta property="og:image" content="http://twalksong.com/images/ruby/git4.jpg">
+<meta property="og:updated_time" content="2015-08-30T03:59:40.746Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="使用Octopress和github搭建个人博客">
+<meta name="twitter:description" content="一、缘起&amp;emsp;&amp;emsp;一直想搭建一个自己的博客，用于技术积累的记录。例如有些技术问题会一而再、再而三的出现，但是还是每次要上网查找或者花时间回忆解决办法；例如在项目管理中出现的一些感悟，可能是一闪而过，如果不记录下来下次很难再想起来。虽然目前自己有一个技术积累库，记录在word文档里，有两个缺点，一是查找不方便，第二个是不能用于其他码农的相互借鉴：我的解决办法是不是最优解决办法？我的想法">
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: 'hide'
+  };
+</script>
+
+  <title> 使用Octopress和github搭建个人博客 | 宁静的心 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  <!--[if lte IE 8]>
+  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
+    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
+           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
+           style='margin-left:auto;margin-right:auto;display: block;'/>
+    </a>
+  </div>
+<![endif]-->
+  
+
+
+
+  <div class="container one-column page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><h1 class="site-meta">
+  <span class="logo-line-before"><i></i></span>
+  <a href="/" class="brand" rel="start">
+      <span class="logo">
+        <i class="icon-next-logo"></i>
+      </span>
+      <span class="site-title">宁静的心</span>
+  </a>
+  <span class="logo-line-after"><i></i></span>
+</h1>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu ">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            <i class="menu-item-icon icon-next-home"></i> <br />
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            <i class="menu-item-icon icon-next-archives"></i> <br />
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            <i class="menu-item-icon icon-next-tags"></i> <br />
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            <i class="menu-item-icon icon-next-about"></i> <br />
+            关于
+          </a>
+        </li>
+      
+
+      
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div id="content" class="content"> 
+
+  <div id="posts" class="posts-expand">
+    
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
+              使用Octopress和github搭建个人博客
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于
+          <time itemprop="dateCreated" datetime="2014-08-14T16:40:01+08:00" content="2014-08-14">
+            2014-08-14
+          </time>
+        </span>
+
+        
+
+        
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        <span itemprop="articleBody"><h1 id="一、缘起">一、缘起</h1><p>&emsp;&emsp;一直想搭建一个自己的博客，用于技术积累的记录。例如有些技术问题会一而再、再而三的出现，但是还是每次要上网查找或者花时间回忆解决办法；例如在项目管理中出现的一些感悟，可能是一闪而过，如果不记录下来下次很难再想起来。虽然目前自己有一个技术积累库，记录在word文档里，有两个缺点，一是查找不方便，第二个是不能用于其他码农的相互借鉴：我的解决办法是不是最优解决办法？我的想法是不是有偏差？</p>
+<p>&emsp;&emsp;所以花时间搭建了这么一个octopress的博客系统。之前看过wordpress的搭建方法，安装文件越来越大，里面自带的东西也越来越多，php、apache、mysql学习成本也很大。最主要的是需要自己去购买空间安装这些组件。但是我只是需要一个写博客记录并发布给其他志同道合的朋友看而已，为何要这么庞大？所以就一直搁浅。如果我能有一个很方便写博客，且又不需要自己购买空间的方法该有多好！或者是自己太贪心了些。</p>
+<p>&emsp;&emsp;正好最近对github感兴趣，听说github是一个在线版本控制平台，许多开源项目都托管在上面，对传统版本控制存有疑虑的人来说，github应该是一个极好的版本控制工具。虽然目前自己也还没有弄明白git的使用方法和规范。某次搜索又看到一篇博文说可以利用github为每个用户以及开源项目创建主页的特性，来创建自己的博客，且不用购买空间来部署，因为github提供jekyll的静态网站生成器。静态网站的一个优势是，不需要用到数据库，文章存储在一个标准的静态网页文件里，随意占用空间小部署简单。我们只需要编写jekyll能解析的轻量级的标签语言(Markdown、Liquid等)书写博客，就可以将博客托管给github。</p>
+<p>&emsp;&emsp;但是出于安全问题有些jekyll插件，github不提供解析服务，例如评论、分享功能，但是github提供静态页面解析服务。所以我们可以自己下载jekyll，将轻量级的标签语言转化为静态页面之后，再上传到github，就可以使用博客的一般功能。但是直接使用jekyll可能会带来一些学习成本，所以我找了octopress，这是一个jekyll的博客发布框架，无缝集成git。</p>
+<p>&emsp;&emsp;下面具体介绍如何使用这些工具搭建一个轻量级的静态网页博客。<br><a id="more"></a></p>
+<hr>
+<h1 id="二、需要了解的技术点">二、需要了解的技术点</h1><p><strong>1.git</strong>:<br>是一个开源的项目版本管理工具，如同cvs、svn。由linux的发明者Linus Torvalds编写，用作Linux内核代码的管理。</p>
+<ul>
+<li><a href="http://www.git-scm.com/" title="git" target="_blank" rel="external">git主页</a>。  </li>
+<li><a href="http://zh.wikipedia.org/wiki/Git" title="git" target="_blank" rel="external">git维基百科链接</a>。  </li>
+</ul>
+<p><strong>2.github</strong>:<br>利用服务器端部署git技术，提供在线的开源项目版本管理平台，也是一个项目托管平台。提供付费和无偿服务。例如java的很多开源组件都托管在github上。</p>
+<ul>
+<li><a href="https://github.com/" title="github" target="_blank" rel="external">github主页</a>。  </li>
+<li><a href="http://zh.wikipedia.org/wiki/GitHub" title="github" target="_blank" rel="external">github维基百科链接</a>。</li>
+</ul>
+<p><strong>3.jekyll</strong>:<br>是一个使用ruby写的，博客形态的静态站点生成器。Jekyll 是一个简单的博客形态的静态站点生产机器。它有一个模版目录，其中包含原始文本格式的文档，通过 Markdown （或者 Textile） 以及 Liquid 转化成一个完整的可发布的静态网站，你可以发布在任何你喜爱的服务器上。</p>
+<ul>
+<li><a href="http://jekyllcn.com/docs/home/" title="jekyll" target="_blank" rel="external">jekyll中国主页</a>。  </li>
+<li><a href="http://en.wikipedia.org/wiki/Jekyll_(software" target="_blank" rel="external">jekyll维基百科链接</a> “jekyll”)。</li>
+</ul>
+<p><strong>4.Liquid</strong>:<br>Liquid是一模板引擎语言，从电子商务系统Shopify提取而来。</p>
+<ul>
+<li><a href="https://github.com/Shopify/liquid/wiki/Liquid-for-Designers" title="Liquid语法" target="_blank" rel="external">Liquid语法</a>。</li>
+</ul>
+<p><strong>5.Markdown</strong>:<br>Markdown 是一种轻量级的标记语言，Markdown 的目标是实现「易读易写」。</p>
+<ul>
+<li><a href="http://www.mceiba.com/develop/markdown-syntax.html" title="Markdown语法" target="_blank" rel="external">Markdown语法</a>。</li>
+</ul>
+<p><strong>6.Octopress</strong>:<br>是一个为jekyll而设计的框架。单独使用jekyll，你需要写你自己的html模板，css,js,以及设置好配置文件，但是用Octopress，这一切都被托管，你关注的只是写博客。</p>
+<ul>
+<li><a href="http://octopress.org/" title="Octopress" target="_blank" rel="external">Octopress主页</a>。  </li>
+<li><a href="http://octopress.org/docs/setup/" title="octopress官方安装文档" target="_blank" rel="external">Octopress官方安装文档</a>。  </li>
+</ul>
+<p><strong>7.Ruby</strong>:<br>因为jekyll是ruby写的,当然需要按装ruby。Ruby 是一种面向对象、命令式、函数式、动态的通用编程语言。在20世纪90年代中期由日本人松本行弘设计并开发。</p>
+<ul>
+<li><a href="https://www.ruby-lang.org/zh_cn/" title="Ruby" target="_blank" rel="external">Ruby主页</a>。  </li>
+<li><a href="http://zh.wikipedia.org/wiki/Ruby" title="ruby" target="_blank" rel="external">ruby维基百科链接</a>。</li>
+</ul>
+<p><strong>8.rubygems</strong>:<br>是一种ruby包管理组件,提供一种分发ruby程序和库的标准格式。</p>
+<ul>
+<li><a href="http://rubygems.org/" title="rubygems" target="_blank" rel="external">Rubygems主页</a>。  </li>
+<li><a href="http://en.wikipedia.org/wiki/RubyGems" title="RubyGems" target="_blank" rel="external">Rubygems维基百科链接</a>。</li>
+</ul>
+<p><strong>9.DevKit</strong>:<br>是一个很方便的编译和使用本地c/c++扩展的工具套件，例如windows上的本地ruby扩展。在windows上使用ruby的一个挑战是如何很容易的使用来自于社区的rubygems。因为有些ruby扩展源代码使用了例如make、gcc、sh类似于unix的命令。所以devkit就发明了，为了能在windows上使用类unix命令。</p>
+<ul>
+<li><a href="https://github.com/oneclick/rubyinstaller/wiki/Development-Kit" title="DevKit" target="_blank" rel="external">github-DevKit</a>。</li>
+</ul>
+<p><strong>10.python</strong>:<br>是一种面向对象、直译式电脑编程语言，具有近二十年的发展历史，成熟且稳定。它的语法简捷和清晰，尽量使用无异义的英语单词，与其它大多数程序设计语言使用大括号不一样，它使用缩进来定义语句块。</p>
+<ul>
+<li><a href="https://www.python.org/" title="python" target="_blank" rel="external">python主页</a>。  </li>
+<li><a href="http://zh.wikipedia.org/wiki/Python" title="python维基百科链接" target="_blank" rel="external">python维基百科链接</a>。</li>
+</ul>
+<hr>
+<h1 id="三、博客搭建">三、博客搭建</h1><p>&emsp;&emsp;搭建环境：win7 sp1。<br>&emsp;&emsp;主体思路是，既然Octopress是使用jekyll来实现的框架，而jekyll是使用ruby写的，那么必然得安装ruby，ruby扩展需要用到Devkit。而博客空间又需要github实现托管，自然需要下载git工具。另外一个博客代码加亮模块需要python的支持。所以需要安装的软件为：ruby、Devkit、octopress、git、python。<br>&emsp;&emsp;为了使ruby使用中文utf-8编码，需要给操作系统加两个环境变量，  </p>
+<pre><code>LANG=zh_CN.UTF-<span class="number">8</span>
+LC_ALL=zh_CN.UTF-<span class="number">8</span>
+</code></pre><p>或者在windows命令窗口执行</p>
+<pre><code><span class="built_in">set</span> LANG=zh_CN.UTF-<span class="number">8</span>
+<span class="built_in">set</span> LC_ALL=zh_CN.UTF-<span class="number">8</span>
+</code></pre><p>这样有一个缺点，一旦命令窗口关掉，又需要重新设置这两个变量。</p>
+<h2 id="1-git安装">1.git安装</h2><p>&emsp;&emsp;<a href="http://git-scm.com/download/win" title="git的windows版下载地址" target="_blank" rel="external">git的windows版下载地址</a>。<br>&emsp;&emsp;安装没有什么特别之处，按照流程一步一步来就ok。也可参照git官方网站安装介绍：<a href="http://git-scm.com/book/zh/%E8%B5%B7%E6%AD%A5-%E5%AE%89%E8%A3%85-Git" title="安装 Git" target="_blank" rel="external">安装 Git</a>。</p>
+<h2 id="2-ruby安装">2.ruby安装</h2><p>&emsp;&emsp;<a href="http://rubyinstaller.org/downloads/" title="ruby的windows版下载地址" target="_blank" rel="external">ruby的windows版下载地址</a>。<br>&emsp;&emsp;Octopress官方文档介绍，最新的Octopress最低依赖于ruby1.9.3。这里如果使用git clone的方式获取的octopress一定要安装大于ruby1.9.3的版本。之前我就是因为clone的是最新版的Octopress，而安装的是ruby1.9.2在之后的操作中出现问题。<br>&emsp;&emsp;ruby安装非常简单，需要注意的是，要选中”Add Ruby executables to your PATH”。安装完之后打开windows命令窗口，执行<code>ruby -v</code>，如果执行成功，显示ruby版本号，则表示ruby安装成功。<br>&emsp;&emsp;更新gem的更新源，ruby的官网经常被拦截，换成国内的更新源。命令如下：</p>
+<pre><code>gem sources -a <span class="string">http:</span><span class="comment">//ruby.taobao.org/</span>
+gem sources -r <span class="string">http:</span><span class="comment">//rubygems.org/</span>
+gem sources -l
+</code></pre><p><img src="/images/ruby/rubyinstaller.jpg" alt="img"><br><img src="/images/ruby/rubyin.jpg" alt="Add Ruby executables to your PATH"></p>
+<h2 id="3-Devkit安装">3.Devkit安装</h2><p>DevKit的下载地址跟ruby的下载地址在一个网页上。选择ruby1.9.3使用的版本。 如果网址打不开，打开<a href="https://github.com/oneclick/rubyinstaller/downloads/" target="_blank" rel="external">这个网址</a>下载devkit。<br>安装过程中会要求解压，解压目录最好选择不带中文名和空格的目录。我第一次选择的是带中文的，导致执行之后的命令一直报错。<br>安装完之后，使用cmd命令打开windows命令窗口，执行如下命令：  </p>
+<figure class="highlight ruby"><figcaption><span>windows的Devkit安装脚本</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">d:</span></span><br><span class="line">cd devkit<span class="comment">#我的devkit安装在d盘根目录下</span></span><br><span class="line">ruby dk.rb init<span class="comment">#生成config.yml，这里会检查将要添加DevKit支持的Ruby列表，只支持通过RubyInstaller安装的Ruby。</span></span><br><span class="line">ruby dk.rb install</span><br></pre></td></tr></table></figure>
+<h2 id="4-python安装">4.python安装</h2><hr>
+<p>&emsp;&emsp;<a href="https://www.python.org/downloads/" title="ruby的windows版下载地址" target="_blank" rel="external">python的windows版下载地址</a>，这里下载2.7.8版本。<br>&emsp;&emsp;python没有什么特别之处，按照流程来安装就ok。安装成功后，执行<code>easy_install pygments</code>，安装博客高亮模块。我执行命令的时候报错，报”不存在的命令”，后来发现是环境变量的问题，python自己加的path环境变量中包含<code>D:\Python27\Pythons</code>没有后面的斜杠，正确应该是<code>D:\Python27\Pythons\</code>。</p>
+<h2 id="5-octopress安装">5.octopress安装</h2><h3 id="5-1，用命令行下载octopress源码：">5.1，用命令行下载octopress源码：</h3><figure class="highlight python"><figcaption><span>用命令行下载octopress源码</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">d:</span><br><span class="line">git clone git://github.com/imathis/octopress.git  octopress</span><br></pre></td></tr></table></figure>
+<h3 id="5-2，更新octopress的更新源：">5.2，更新octopress的更新源：</h3><p>进入d:/octopress目录，用文本编辑器打开gemfile文件，将<code>source “http://rubygems.org/”</code>，修改为<code>source “http://ruby.taobao.org/”</code>。 </p>
+<h3 id="5-3，安装octopress依赖项：">5.3，安装octopress依赖项：</h3><figure class="highlight python"><figcaption><span>安装octopress依赖项</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">d:</span><br><span class="line">cd octopress</span><br><span class="line">gem install bundler</span><br><span class="line">bundle install</span><br></pre></td></tr></table></figure>
+<h2 id="6-登录github，新建主页库(Repositories)。">6.登录github，新建主页库(Repositories)。</h2><p>&emsp;&emsp;github分为用户主页和项目主页，用户主页就可以作为个人博客，用户主页输入username.github.com就可以进入。用户主页需要登录github用户，建立一个名字为<code>username.github.com</code>的库。例如twitter的GitHub主页是：<a href="http://twitter.github.com/。" target="_blank" rel="external">http://twitter.github.com/。</a><br>&emsp;&emsp;没有github的用户，先注册一个github用户。注册之后，登录Github，新建一个库，名字为<code>username.github.com</code>,username为你的注册用户名。<br><img src="/images/ruby/github2.jpg" alt="新建主页库"><br><img src="/images/ruby/github3.jpg" alt="新建主页库"><br><img src="/images/ruby/github4.jpg" alt="新建主页库">  </p>
+<p><em>说明1</em>：最好不要勾选init this repo with a readme，因为octopress会自动为我们设置一个readme.md，如果服务器也有一个readme.md,在之后的操作可能会出现不同步的问题。<br><em>说明2</em>：需要配置ssh,具体配置请看底下的<a href="#ssh" title="注意问题1">注意问题1</a>。  </p>
+<h2 id="7-部署octopress静态站点到github。">7.部署octopress静态站点到github。</h2><h3 id="7-1，进行github_pages设置：">7.1，进行github_pages设置：</h3><p>打开windows命令窗口，输入  </p>
+<figure class="highlight python"><figcaption><span>github_pages设置</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">d:</span><br><span class="line">cd octopress</span><br><span class="line">rake setup_github_pages</span><br></pre></td></tr></table></figure>
+<p>这个rake命令会问你的用户库，按照提示输入新建的用户库地址：</p>
+<pre><code>git@github<span class="class">.com</span>:username/username<span class="class">.github</span><span class="class">.com</span><span class="class">.git</span>
+或
+git@github<span class="class">.com</span>:username/username<span class="class">.github</span><span class="class">.com</span>
+</code></pre><p>不要按照提示来输入<code>git@github.com:username/username.github.io</code>，要不然在之后的操作会报错，说找不到库。<br><img src="/images/ruby/git4.jpg" alt="rake setup_github_pages">  </p>
+<p>说明1：<a href="http://blog.csdn.net/smilewater/article/details/1683808" title="rake" target="_blank" rel="external">rake</a>是ruby make，ruby开发的一个项目构建工具。<br>说明2：<br><blockquote><p>Github Pages使用master分支，就像web服务器上的公共目录，为我们的站点提供服务。但是在另外一个方面，我们又想要使用source分支，来版本控制项目源代码。<code>rake setup_github_pages</code>这个命令就可以全部帮我们设置好。<br>这个命令会执行如下操作：  </p>
+<ul>
+<li>询问你主页库地址  </li>
+<li>重新命名远程点从’origin’到’octopress’  </li>
+<li>加上我们输入的主页库作为默认的origin remote  </li>
+<li>转换活动分支从master到source  </li>
+<li>根据你的库配置博客地址  </li>
+<li>在_deploy目录设置一个master分支，用于部署。</li>
+</ul>
+</blockquote></p>
+<h3 id="7-2，将静态站点发布到github：">7.2，将静态站点发布到github：</h3><p>打开windows命令窗口，输入  </p>
+<figure class="highlight python"><figcaption><span>将静态站点发布到github</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">rake install  </span><br><span class="line">rake generate  </span><br><span class="line">rake deploy</span><br></pre></td></tr></table></figure>  
+<p>这个会安装默认博客主题，并生成博客站点，复制博客站点到_deploy文件夹，并将它加入到git,提交发布到github的master分支。几秒之后，在浏览器输入<code>username.github.com</code>，应该就可以进入你的博客站点了。<br><img src="/images/ruby/blog.jpg" alt="blog">  </p>
+<p>说明：如果想在本地预览博客效果，可以在<code>rake generate</code>命令执行之后，执行<code>rake preview</code>命令，执行成功，不要关掉命令窗口，在浏览器输入<a href="http://localhost:4000" target="_blank" rel="external">http://localhost:4000</a>就可以预览你自己的博客了。  </p>
+<h3 id="7-3，别忘了将从github克隆下来的octopress源代码提交到github的source分支：">7.3，别忘了将从github克隆下来的octopress源代码提交到github的source分支：</h3><figure class="highlight python"><figcaption><span>源代码提交</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git add .  </span><br><span class="line">git commit -m <span class="string">'your message'</span>  </span><br><span class="line">git push origin source</span><br></pre></td></tr></table></figure>  
+<hr>
+<h1 id="四、站点配置">四、站点配置</h1><p>&emsp;&emsp;<a href="http://jekyllrb.com/docs/variables/" target="_blank" rel="external">站点配置介绍</a>。<br><blockquote><p>Jekyll允许你很轻松的设计你的网站，这很大程度上归功于灵活强大的配置功能。既可以配置在网站根目录下的 _config.yml 文件，也可以作为命令行的标记来配置。</p>
+</blockquote><br>&emsp;&emsp;一个_config.yml例子如下：  </p>
+<figure class="highlight"><figcaption><span>_config.yml例子</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">url: http://picnic106.github.io&#10;title: &#23527;&#38748;&#33268;&#36960;&#10;subtitle: &#28954;&#33167;&#27833;&#20197;&#32380;&#26231;&#65292;&#24646;&#20800;&#20800;&#20197;&#31406;&#24180;&#12290;&#10;author: songyj&#10;simple_search: https://www.google.com/search&#10;dePythonion:</span><br></pre></td></tr></table></figure>
+
+你可以修改你博客的url，博客标题，博客的说明，博客作者等。详细站点配置请点击[站点配置](http://jekyllcn.com/docs/configuration/)。
+
+* * *
+
+
+# 五、使用博客
+
+&emsp;&emsp;[octopress官方使用文档](http://octopress.org/docs/blogging/)，以下基本是对官方文档的翻译：  
+
+&emsp;&emsp;Octopress提供一些`rake`命令，根据Jekyll的命名规则来创建文章和根据元数据预装载网页。  
+
+
+## 1，博客文章
+
+&emsp;&emsp;博客文章必须被写在`source/_posts`文件夹下，而且命名规则必须依照Jekyll的命名规则：`YYYY-MM-DD-post-title.markdown`。这个文件名字将被用于url解析，时间将被用于定位文件以及文章排序。  
+&emsp;&emsp;Octopress提供一些`rake`命令使用正确的命名规则以及正确的yaml元素来创建新的文章：`rake new_post["title"]`。  
+
+&emsp;&emsp;new_post命令要求一个自然的书写标题，以及剥离了创建文件时的不良url字符。默认新文章文章扩展名是markdown，但是在Rakefile文件中可以配置。例如：   
+
+<figure class="highlight python"><figcaption><span>new_post命令</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rake new_post[<span class="string">"我的第一篇博客"</span>]<span class="comment">#将创建source/_posts/2014-08-14-我的第一篇博客.markdown文件</span></span><br></pre></td></tr></table></figure>
+<p>&emsp;&emsp;这个文件名决定你的url。根据永久链接设置，新的博客文章访问url将是如下：<code>http://username.github.com/blog/2014/08/14/我的第一篇博客/index.html</code>。永久链接的规则是可以设置的，也可以不按照这个规则来，详细规则请看<a href="http://jekyllrb.com/docs/permalinks/" target="_blank" rel="external">永久链接设置官方文档</a>。  </p>
+<p>&emsp;&emsp;使用一个文本编辑器(例如win7下使用的是notepad++)打开新文章（<code>source/_posts</code>）。看到一块<a href="http://jekyllrb.com/docs/frontmatter/" target="_blank" rel="external">yaml头信息</a>设置。  </p>
+<blockquote><p>正是头信息开始让Jekyll变的很酷。任何只要包含YAML头信息的文件在Jekyll 中都能被当做一个特殊的文件来处理。头信息必须在文件的开始部分，并且需要按照 YAML 的格式写在两行三虚线之间。告诉Jekyll如何处理文章和网页。</p>
+</blockquote>  
+<figure class="highlight"><figcaption><span>YAML头信息</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">---&#10;layout: post&#10;title: &#34;&#25105;&#30340;&#31532;&#19968;&#31687;&#21338;&#23458;&#34;&#10;date: 2014-08-14 5:59&#10;comments: true&#10;external-url:&#10;tags:&#10;---</span><br></pre></td></tr></table></figure>
+<p>&emsp;&emsp;在这两行的三虚线之间，你可以设置一些预定义的变量或者甚至创建一个你自己定义的变量。这样在接下来的文章和任意模板中或者在包含这些页面或博客的模板中都可以通过使用 Liquid 标签来访问这些变量。<br>&emsp;&emsp;这里你还可以把意见（comments）关掉，或者是给你的文章加一个类别。假如这篇文章是几个人同时写的话，还可以加上<code>author: 你的名字</code>。如果你的文章只是一个草稿，你还可以加上<code>published: false</code>，防止发布到正式博客上。<br>你还能加一个简单的类别或者多个类别，例如：</p>
+<figure class="highlight"><figcaption><span>YAML头信息categories配置</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># One category&#10;tags: Sass&#10; &#10;# Multiple categories example 1&#10;tags: [CSS3, Sass, Media Queries]&#10; &#10;# Multiple categories example 2&#10;tags:&#10;- CSS3&#10;- Sass&#10;- Media Queries</span><br></pre></td></tr></table></figure>
+<h2 id="2，博客网页">2，博客网页</h2><p>&emsp;&emsp;你可以加一个页面在你博客源目录的任何地方，他们会被Jekyll解析。这个url将直接指定到目录，所以<code>about.markdown</code>变成了<code>site.com/about.html</code>。Octopress 有一个新建网页的rake命令：  </p>
+<figure class="highlight python"><figcaption><span>新建网页的rake命令</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">rake new_page[super-awesome]<span class="comment"># creates /source/super-awesome/index.markdown</span></span><br><span class="line">     </span><br><span class="line">rake new_page[super-awesome/page.html]<span class="comment"># creates /source/super-awesome/page.html</span></span><br></pre></td></tr></table></figure>
+<p>&emsp;&emsp;跟新建文章命令一样，默认的扩展文件名是markdown，但是你可以在rakefile中配置。一个新生成的页面大概是这样：  </p>
+<figure class="highlight"><figcaption><span>YAML头信息</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">---&#10;layout: page&#10;title: &#34;Super Awesome&#34;&#10;date: 2011-07-03 5:59&#10;comments: true&#10;sharing: true&#10;footer: true&#10;---</span><br></pre></td></tr></table></figure>
+<h2 id="3，博客内容">3，博客内容</h2><p>&emsp;&emsp;在yaml头信息设置后，你可以添加你的博客内容。博客内容可以使用你在站点配置文件中配置的标签语法，（例如Markdown标签语法，第二节有介绍）。这个文章或者网页的内容将被你在站点配置文件设置的标签引擎所渲染。在文章中，你另外你还可以使用liquid模板语法。插入<code>&lt;!-- more --&gt;</code>到你的文章将防止低于此标记的后的内容被显示在首页，一个“Continue →”按钮将显示全文。  </p>
+<h2 id="4，生成和预览">4，生成和预览</h2><figure class="highlight python"><figcaption><span>生成和预览</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">rake generate   <span class="comment"># 生成文章或者网页到对外访问的文件夹</span></span><br><span class="line">rake watch      <span class="comment"># Watches source/ and sass/ for changes and regenerates</span></span><br><span class="line">rake preview    <span class="comment"># 查看和启动一个服务，url是http://localhost:4000进行预览。</span></span><br></pre></td></tr></table></figure>
+<h2 id="5，部署到github">5，部署到github</h2><figure class="highlight python"><figcaption><span>部署到github</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rake deploy   <span class="comment">#将博客内容发布到github，过几秒，在浏览器网址输入你博客网址(username.github.com)访问你的个人站点。</span></span><br></pre></td></tr></table></figure>
+<hr>
+<h1 id="六、注意问题">六、注意问题</h1><h2 id="1，配置ssh">1，配置ssh</h2><p>在本地安装完git,在github服务器注册完帐号，新建库之后，需要配置ssh密钥。新建库之后需要配置github的ssh密钥,要不然在<code>rake deploy</code>部署命令的时候会报错：  </p>
+<pre><code>Permission denied (publicb.com/key).  
+fatal: Could <span class="keyword">not</span> <span class="command">read</span> <span class="keyword">from</span> remote repository.  
+</code></pre><p><a href="https://help.githuarticles/generating-ssh-keys" target="_blank" rel="external">ssh密钥</a>:是一种用来识别受信任计算机的一种方法，而不涉及到密码。下面的步骤将带你产生一个ssh密钥，并将公钥加入到github帐户。  </p>
+<h3 id="步骤1："><strong>步骤1</strong>：</h3><p>检查ssh密钥：检查计算机上是否存在ssh密钥,进入windows用户目录，例如我机器上的用户目录是：C:\Users\username。检查这个目录下是否有.ssh文件夹，如果有检查.ssh文件夹下是否有<code>id_rsa.pub</code>或者<code>id_dsa.pub</code>文件。如果没有进入第二步，如果已经存在了，进入第三步。  </p>
+<h3 id="步骤2："><strong>步骤2</strong>：</h3><p>生成一个ssh密钥：生成一个密钥，需要执行以下命令，确保git/bin目录存在环境变量PATH里，your_email@example.com修改为你github的注册邮箱：  </p>
+<figure class="highlight python"><figcaption><span>生成ssh密钥</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C <span class="string">"your_email@example.com"</span></span><br><span class="line"><span class="comment"># 这个命令生成一对ssh公钥/私钥，输入一个目录保存ssh密钥，保存到用户目录的.ssh文件夹下。</span></span><br></pre></td></tr></table></figure>
+<p>然后会要求输入密码，不想输入，直接回车，但是官方建议是一定要输入密码。  </p>
+<h3 id="步骤3："><strong>步骤3</strong>：</h3><p>配置github帐号的ssh公钥：使用文本文件打开<code>id_rsa.pub</code>文件，复制里面的内容，然后把内容加到github帐号。<br>&emsp;&emsp;1，点击github帐号设置：<br><img src="/images/ruby/zhsz.jpg" alt="进入帐号设置"><br>&emsp;&emsp;2，在左边设置点击“ssh keys”：<br><img src="/images/ruby/sshkey.jpg" alt="sshkey"><br>&emsp;&emsp;3，在右边输入ssh密钥描述，然后粘贴你复制的ssh公钥,点击保存：<br><img src="/images/ruby/sshsr.jpg" alt="sshsr"><br>&emsp;&emsp;4，测试sshkey是否配置正确，打开本地命令窗口，输入：   </p>
+<figure class="highlight python"><figcaption><span>测试sshkey</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -T git@github.com</span><br></pre></td></tr></table></figure>
+<p>如果提示：  </p>
+<pre><code>Hi picnic106! You've successfully authenticated, <span class="keyword">but</span> GitHub <span class="keyword">does</span> <span class="keyword">not</span> provide shell access.   
+</code></pre><p>表示配置成功。  </p>
+<h2 id="2，注意rake_setup_github_pages命令的库路径">2，注意rake setup_github_pages命令的库路径</h2><p>不要按照提示来输入<code>git@github.com:username/username.github.io</code>，要不然在之后的操作会报错，说找不到库。<br><img src="/images/ruby/git4.jpg" alt="rake setup_github_pages"><br>那么如果输错了的解决办法是修改octopress/_deploy/.git/config下和你本身站点相关的username.github.io全修改成username.github.com，之后使用<code>rake deploy</code>重新部署。例如：  </p>
+<pre><code>[remote <span class="string">"origin"</span>]
+url = git@github<span class="class">.com</span>:username/username<span class="class">.github</span><span class="class">.io</span><span class="class">.git</span>
+</code></pre><p>修改成</p>
+<pre><code>[remote <span class="string">"origin"</span>]
+url = git@github<span class="class">.com</span>:username/username<span class="class">.github</span><span class="class">.com</span><span class="class">.git</span>
+</code></pre><h2 id="3，文件格式问题">3，文件格式问题</h2><p>所有文件格式必须是UTF-8的无BOM编码格式，可以使用文本编辑软件进行转换格式，例如notepad++转换格式在菜单：format-&gt;转为utf-8无bom编码格式。<br>至于什么是bom，且为什么要这样，goole吧，本人也了解不多。如果不这么设置，在有一些命令会报错。  </p>
+<h2 id="4，部署到github，报版本不一致问题">4，部署到github，报版本不一致问题</h2><p>有时候运行<code>rake deploy</code>会报错<code>non-fast-forward errors</code>,出现这个问题是因为本地文件跟github服务器文件版本不一致，例如上面谈到的，在新建库的时候建立了readme.md文件但是本地进行<code>rake generate</code>的时候也生成了readme.md文件，那么就会造成版本不一致问题。<br>解决办法：  </p>
+<figure class="highlight python"><figcaption><span>解决报版本不一致脚本</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git config branch.master.remote origin  </span><br><span class="line">git config branch.master.merge refs/heads/master  </span><br><span class="line">git pull<span class="comment">#将远程文件拉到本地，并进行合并merge</span></span><br><span class="line">rake deploy<span class="comment">#就不会出现问题了</span></span><br></pre></td></tr></table></figure>
+<p>（完）</p>
+</span>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Octopress/" rel="tag">#Octopress</a>
+          
+            <a href="/tags/github/" rel="tag">#github</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2014/09/08/rework/" rel="prev">读取rework有感-TAKEDOWNS忽略真实世界</a>
+            
+          </div>
+
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+ </div>
+
+        
+
+        
+          <div class="comments" id="comments">
+            
+          </div>
+        
+      </div>
+
+      
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" src="/images/touxiang.jpg" alt="宋英杰" itemprop="image"/>
+          <p class="site-author-name" itemprop="name">宋英杰</p>
+        </div>
+        <p class="site-description motion-element" itemprop="description">java | andriod | python | ruby</p>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">35</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          <div class="site-state-item site-state-categories">
+            
+              <span class="site-state-item-count">0</span>
+              <span class="site-state-item-name">分类</span>
+              
+          </div>
+
+          <div class="site-state-item site-state-tags">
+            <a href="/tags">
+              <span class="site-state-item-count">12</span>
+              <span class="site-state-item-name">标签</span>
+              </a>
+          </div>
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator"></div>
+          <div class="post-toc">
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#一、缘起"><span class="nav-number">1.</span> <span class="nav-text">一、缘起</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二、需要了解的技术点"><span class="nav-number">2.</span> <span class="nav-text">二、需要了解的技术点</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#三、博客搭建"><span class="nav-number">3.</span> <span class="nav-text">三、博客搭建</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-git安装"><span class="nav-number">3.1.</span> <span class="nav-text">1.git安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-ruby安装"><span class="nav-number">3.2.</span> <span class="nav-text">2.ruby安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-Devkit安装"><span class="nav-number">3.3.</span> <span class="nav-text">3.Devkit安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-python安装"><span class="nav-number">3.4.</span> <span class="nav-text">4.python安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-octopress安装"><span class="nav-number">3.5.</span> <span class="nav-text">5.octopress安装</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#5-1，用命令行下载octopress源码："><span class="nav-number">3.5.1.</span> <span class="nav-text">5.1，用命令行下载octopress源码：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-2，更新octopress的更新源："><span class="nav-number">3.5.2.</span> <span class="nav-text">5.2，更新octopress的更新源：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-3，安装octopress依赖项："><span class="nav-number">3.5.3.</span> <span class="nav-text">5.3，安装octopress依赖项：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-登录github，新建主页库(Repositories)。"><span class="nav-number">3.6.</span> <span class="nav-text">6.登录github，新建主页库(Repositories)。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-部署octopress静态站点到github。"><span class="nav-number">3.7.</span> <span class="nav-text">7.部署octopress静态站点到github。</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#7-1，进行github_pages设置："><span class="nav-number">3.7.1.</span> <span class="nav-text">7.1，进行github_pages设置：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-2，将静态站点发布到github："><span class="nav-number">3.7.2.</span> <span class="nav-text">7.2，将静态站点发布到github：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-3，别忘了将从github克隆下来的octopress源代码提交到github的source分支："><span class="nav-number">3.7.3.</span> <span class="nav-text">7.3，别忘了将从github克隆下来的octopress源代码提交到github的source分支：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#四、站点配置"><span class="nav-number">4.</span> <span class="nav-text">四、站点配置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2，博客网页"><span class="nav-number">4.1.</span> <span class="nav-text">2，博客网页</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3，博客内容"><span class="nav-number">4.2.</span> <span class="nav-text">3，博客内容</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4，生成和预览"><span class="nav-number">4.3.</span> <span class="nav-text">4，生成和预览</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5，部署到github"><span class="nav-number">4.4.</span> <span class="nav-text">5，部署到github</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#六、注意问题"><span class="nav-number">5.</span> <span class="nav-text">六、注意问题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1，配置ssh"><span class="nav-number">5.1.</span> <span class="nav-text">1，配置ssh</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#步骤1："><span class="nav-number">5.1.1.</span> <span class="nav-text">步骤1：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#步骤2："><span class="nav-number">5.1.2.</span> <span class="nav-text">步骤2：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#步骤3："><span class="nav-number">5.1.3.</span> <span class="nav-text">步骤3：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2，注意rake_setup_github_pages命令的库路径"><span class="nav-number">5.2.</span> <span class="nav-text">2，注意rake setup_github_pages命令的库路径</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3，文件格式问题"><span class="nav-number">5.3.</span> <span class="nav-text">3，文件格式问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4，部署到github，报版本不一致问题"><span class="nav-number">5.4.</span> <span class="nav-text">4，部署到github，报版本不一致问题</span></a></li></ol></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator"></div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner"> <div class="copyright" >
+  
+  &copy; &nbsp; 
+  <span itemprop="copyrightYear">2015</span>
+  <span class="with-love">
+    <i class="icon-next-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">宋英杰</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+ </div>
+    </footer>
+
+    <div class="back-to-top"></div>
+  </div>
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  
+  
+    
+    
+
+  
+
+
+  
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript" src="/js/fancy-box.js?v=0.4.5.1"></script>
+
+
+  <script type="text/javascript" src="/js/helpers.js?v=0.4.5.1"></script>
+  
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/js/motion_global.js?v=0.4.5.1" id="motion.global"></script>
+
+
+
+
+  <script type="text/javascript" src="/js/nav-toggle.js?v=0.4.5.1"></script>
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  
+<script type="text/javascript" src="/js/bootstrap.scrollspy.js?v=0.4.5.1" id="bootstrap.scrollspy.custom"></script>
+
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 0.4 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    var $tocContent = $('.post-toc-content');
+    if (isDesktop() && CONFIG.sidebar === 'post') {
+      if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+        displaySidebar();
+      }
+    }
+  });
+</script>
+
+
+
+  <script type="text/javascript">
+    $(document).ready(function () {
+      if (CONFIG.sidebar === 'always') {
+        displaySidebar();
+      }
+      if (isMobile()) {
+        FastClick.attach(document.body);
+      }
+    });
+  </script>
+
+  
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/lazyload.js"></script>
+  <script type="text/javascript">
+    $(function () {
+      $("#posts").find('img').lazyload({
+        placeholder: "/images/loading.gif",
+        effect: "fadeIn"
+      });
+    });
+  </script>
+</body>
+</html>

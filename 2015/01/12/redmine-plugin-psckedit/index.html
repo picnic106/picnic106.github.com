@@ -1,0 +1,641 @@
+<!doctype html>
+<html class="theme-next use-motion theme-next-mist">
+<head>
+  
+
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+  <link rel="stylesheet" type="text/css" href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5"/>
+
+
+
+
+<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.4.5.1"/>
+
+
+    <meta name="description" content="java | andriod | python | ruby" />
+
+
+
+  <meta name="keywords" content="redmine," />
+
+
+
+
+
+  <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1" />
+
+
+<meta name="description" content="缘起redmine用了一段时间,感觉还不错。如果加一个编辑器标签，加一个代码评审标签就更好了。网上搜了很多，决定加redmine_code_review代码评审插件和redmine_wysiwyg编辑插件。   
+redmine版本：redmine-2.6.0ruby版本：2.0.0ruby on rails版本：3.2.19">
+<meta property="og:type" content="article">
+<meta property="og:title" content="redmine安装代码评审和编辑器插件">
+<meta property="og:url" content="http://twalksong.com/2015/01/12/redmine-plugin-psckedit/index.html">
+<meta property="og:site_name" content="宁静的心">
+<meta property="og:description" content="缘起redmine用了一段时间,感觉还不错。如果加一个编辑器标签，加一个代码评审标签就更好了。网上搜了很多，决定加redmine_code_review代码评审插件和redmine_wysiwyg编辑插件。   
+redmine版本：redmine-2.6.0ruby版本：2.0.0ruby on rails版本：3.2.19">
+<meta property="og:image" content="http://twalksong.com/images/redmine/评审插件安装.png">
+<meta property="og:image" content="http://twalksong.com/images/redmine/编辑器安装1.png">
+<meta property="og:image" content="http://twalksong.com/images/redmine/编辑器插件安装2.png">
+<meta property="og:image" content="http://twalksong.com/images/redmine/3.png">
+<meta property="og:image" content="http://twalksong.com/images/redmine/4.png">
+<meta property="og:image" content="http://twalksong.com/images/redmine/5.png">
+<meta property="og:image" content="http://twalksong.com/images/redmine/6.png">
+<meta property="og:image" content="http://twalksong.com/images/redmine/7.png">
+<meta property="og:image" content="http://twalksong.com/images/redmine/8.png">
+<meta property="og:image" content="http://twalksong.com/images/redmine/10.png">
+<meta property="og:image" content="http://twalksong.com/images/redmine/9.png">
+<meta property="og:image" content="http://twalksong.com/images/redmine/11.png">
+<meta property="og:image" content="http://twalksong.com/images/redmine/12.png">
+<meta property="og:image" content="http://twalksong.com/images/redmine/13.png">
+<meta property="og:updated_time" content="2015-08-30T03:59:40.822Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="redmine安装代码评审和编辑器插件">
+<meta name="twitter:description" content="缘起redmine用了一段时间,感觉还不错。如果加一个编辑器标签，加一个代码评审标签就更好了。网上搜了很多，决定加redmine_code_review代码评审插件和redmine_wysiwyg编辑插件。   
+redmine版本：redmine-2.6.0ruby版本：2.0.0ruby on rails版本：3.2.19">
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: 'hide'
+  };
+</script>
+
+  <title> redmine安装代码评审和编辑器插件 | 宁静的心 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  <!--[if lte IE 8]>
+  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
+    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
+           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
+           style='margin-left:auto;margin-right:auto;display: block;'/>
+    </a>
+  </div>
+<![endif]-->
+  
+
+
+
+  <div class="container one-column page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><h1 class="site-meta">
+  <span class="logo-line-before"><i></i></span>
+  <a href="/" class="brand" rel="start">
+      <span class="logo">
+        <i class="icon-next-logo"></i>
+      </span>
+      <span class="site-title">宁静的心</span>
+  </a>
+  <span class="logo-line-after"><i></i></span>
+</h1>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu ">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            <i class="menu-item-icon icon-next-home"></i> <br />
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            <i class="menu-item-icon icon-next-archives"></i> <br />
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            <i class="menu-item-icon icon-next-tags"></i> <br />
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            <i class="menu-item-icon icon-next-about"></i> <br />
+            关于
+          </a>
+        </li>
+      
+
+      
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div id="content" class="content"> 
+
+  <div id="posts" class="posts-expand">
+    
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
+              redmine安装代码评审和编辑器插件
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于
+          <time itemprop="dateCreated" datetime="2015-01-12T17:49:13+08:00" content="2015-01-12">
+            2015-01-12
+          </time>
+        </span>
+
+        
+
+        
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        <span itemprop="articleBody"><h1 id="缘起">缘起</h1><p>redmine用了一段时间,感觉还不错。如果加一个编辑器标签，加一个代码评审标签就更好了。网上搜了很多，决定加redmine_code_review代码评审插件和redmine_wysiwyg编辑插件。   </p>
+<p>redmine版本：redmine-2.6.0<br>ruby版本：2.0.0<br>ruby on rails版本：3.2.19  </p>
+<a id="more"></a>
+<h1 id="插件下载">插件下载</h1><h2 id="code_review代码评审插件下载">code_review代码评审插件下载</h2><ul>
+<li><a href="http://www.redmine.org/plugins/redmine_code_review" target="_blank" rel="external">redmine的code_review代码评审主页</a>  </li>
+<li><a href="https://bitbucket.org/haru_iida/redmine_code_review/downloads" target="_blank" rel="external">代码评审插件最新0.6.4版本下载地址</a>    </li>
+</ul>
+<h2 id="redmine_wysiwyg编辑插件下载">redmine_wysiwyg编辑插件下载</h2><ul>
+<li><a href="https://github.com/stpl/redmine_wysiwyg" target="_blank" rel="external">redmine的编辑插件github主页</a>   </li>
+<li>下载：点击github主页右下角”Download ZIP”就可以下载下来。  </li>
+</ul>
+<h1 id="插件安装">插件安装</h1><h2 id="复制到redmine的plugin目录">复制到redmine的plugin目录</h2><p>将下载下来的打包文件解压缩，复制到redmine服务器的plugin目录，因为我是通过Bitnami组件安装的redmine，所以我自己服务器的redmine插件路径是：<code>E:\Bitnami\redmine-2.6.0-1\apps\redmine\htdocs\plugins</code>。  </p>
+<h2 id="插件集成">插件集成</h2><p>如果你的redmine是1.X.X的版本，集成命令是<code>rake db:migrate RAILS_ENV=production</code>，如果是2.X.X版本，命令是<code>rake redmine:plugins:migrate RAILS_ENV=production</code>。  </p>
+<p><strong><em>注意：因为rake命令在htdocs\bin文件夹下，而rake文件却在htdocs文件夹下，所以如果在htdocs文件夹下输入rake命令是找不到的，因为rake命令在bin文件加下，所以我使用了一个变通的方法：<code>ruby bin\rake redmine:plugins:migrate RAILS_ENV=production</code>。我认为这是一个bug，但是通过变通方式可以解决。</em></strong>  </p>
+<h3 id="环境变量设置">环境变量设置</h3><p>在执行集成命令之前需要设置环境变量，以便命令环境知道ruby、rake、gem命令。Bitnami的环境变量文件在<code>E:\Bitnami\redmine-2.6.0-1\scripts\setenv.bat</code>,设置好环境变量后，将目录切换到redmine目录，输入集成命令。  </p>
+<h3 id="代码评审插件集成">代码评审插件集成</h3><p>代码评审插件集成步骤比较简单因为不用额外加载另外的ruby插件。命令如下：  </p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> E:\Bitnami\redmine-<span class="number">2</span>.<span class="number">6</span>.<span class="number">0</span>-<span class="number">1</span>\scripts  </span><br><span class="line">setenv  </span><br><span class="line"><span class="built_in">cd</span> E:\Bitnami\redmine-<span class="number">2</span>.<span class="number">6</span>.<span class="number">0</span>-<span class="number">1</span>\apps\redmine\htdocs</span><br><span class="line">ruby bin\rake redmine:plugins:migrate RAILS_ENV=production</span><br></pre></td></tr></table></figure>  
+<p>输出如下图就算集成成功了：   </p>
+<p><img src="/images/redmine/评审插件安装.png" alt="img"></p>
+<h3 id="编辑器插件集成">编辑器插件集成</h3><p>编辑器插件集成就复杂一点，因为它还依赖了其他的包。<br><strong><em>1,安装需要的gem</em></strong>    </p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bundle install --without development test</span><br></pre></td></tr></table></figure>  
+<p>但是我输入之后报如下错误：  </p>
+<p><img src="/images/redmine/编辑器安装1.png" alt="img">  </p>
+<p>因为对ruby不是太熟悉，虽然自学过。网上说就按照ruby的提示来就行。  </p>
+<blockquote><p>ruby的伟大之处就是，即使你出错了，但是你按照ruby的提示一步一步来就没问题。</p>
+</blockquote>
+<p>所以我按照提示输入：<code>bundle install --no-deployment</code>,但是还是报错了，报如下错误：  </p>
+<p><img src="/images/redmine/编辑器插件安装2.png" alt="img"><br><img src="/images/redmine/3.png" alt="img"></p>
+<p>根据提示来，貌似是少了python相关包，如果真是少了python这个包，心想麻烦了，还得安装python。<br>但是先继续按照提示来吧，输入如下命令：<code>gem install libv8 -v &#39;3.11.8.17&#39;</code>，却报如下错：<br><img src="/images/redmine/4.png" alt="img"><br>之前遇到过这个问题，貌似原因是，gem库是<code>https://rubygems.org</code>，客户端链接https链接的时候缺少证书认证。想到一招是指定gem库为http的。<br>于是输入如下命令：<code>gem install libv8 -v &#39;3.11.8.17&#39; --source http://rubygems.org</code><br>但是还报错了：<br><img src="/images/redmine/5.png" alt="img"><br>这下没招了，继续google吧，还别说真找到老外一篇相关文章，还真别说google的准确度比baidu要强不知多少倍。<br>根据搜索结果输入如下命令：  </p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gem install libv8 -v '<span class="number">3</span>.<span class="number">11</span>.<span class="number">8</span>.<span class="number">17</span>' --source http://rubygems.org -- --with-system-v8</span><br></pre></td></tr></table></figure>  
+<p>这里不知<code>--with-system-v8</code>这个参数有什么作用，留着以后自学ruby的时候再思考吧，这里先把插件安装搞定了。  </p>
+<p>这里libv8插件安装成功了，继续输入<code>bundle install --no-deployment</code>吧。结果如下就表示没有问题了，编辑器依赖的包终于安装成功了。<br><img src="/images/redmine/6.png" alt="img">  </p>
+<p><strong><em>2,编辑器插件集成</em></strong><br>到这一步就是编辑器集成了，输入如下命令：   </p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ruby bin\rake redmine:plugins:migrate RAILS_ENV=production</span><br></pre></td></tr></table></figure>  
+<p>输入如下所示就表示，将redmine重启时候，代码审核和编辑插件都可以使用了：  </p>
+<p><img src="/images/redmine/7.png" alt="img">   </p>
+<h1 id="插件使用">插件使用</h1><h2 id="代码审核插件使用">代码审核插件使用</h2><p>redmine重启之后，需要使用管理员帐号登录redmine帐号，配置代码审核模块，就可以正常同svn使用代码审核功能了。如下图所示：  </p>
+<p><img src="/images/redmine/8.png" alt="img">   </p>
+<p><img src="/images/redmine/10.png" alt="img"> </p>
+<p><img src="/images/redmine/9.png" alt="img">   </p>
+<p><img src="/images/redmine/11.png" alt="img">    </p>
+<h2 id="编辑器插件使用">编辑器插件使用</h2><p>redmine重启之后，需要使用管理员帐号登录redmine帐号，修改配置中的文本格式。如下图所示：<br><img src="/images/redmine/12.png" alt="img"><br><img src="/images/redmine/13.png" alt="img"> </p>
+</span>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/redmine/" rel="tag">#redmine</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/01/12/redmine-svn-https/" rel="prev">redmine通过https集成svn</a>
+            
+          </div>
+
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/01/12/run-log/" rel="next">跑步日记(2015年1月12日)</a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+ </div>
+
+        
+
+        
+          <div class="comments" id="comments">
+            
+          </div>
+        
+      </div>
+
+      
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" src="/images/touxiang.jpg" alt="宋英杰" itemprop="image"/>
+          <p class="site-author-name" itemprop="name">宋英杰</p>
+        </div>
+        <p class="site-description motion-element" itemprop="description">java | andriod | python | ruby</p>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">35</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          <div class="site-state-item site-state-categories">
+            
+              <span class="site-state-item-count">0</span>
+              <span class="site-state-item-name">分类</span>
+              
+          </div>
+
+          <div class="site-state-item site-state-tags">
+            <a href="/tags">
+              <span class="site-state-item-count">12</span>
+              <span class="site-state-item-name">标签</span>
+              </a>
+          </div>
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+      </section>
+
+      
+        <section class="post-toc-wrap sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator"></div>
+          <div class="post-toc">
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#缘起"><span class="nav-number">1.</span> <span class="nav-text">缘起</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#插件下载"><span class="nav-number">2.</span> <span class="nav-text">插件下载</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#code_review代码评审插件下载"><span class="nav-number">2.1.</span> <span class="nav-text">code_review代码评审插件下载</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#redmine_wysiwyg编辑插件下载"><span class="nav-number">2.2.</span> <span class="nav-text">redmine_wysiwyg编辑插件下载</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#插件安装"><span class="nav-number">3.</span> <span class="nav-text">插件安装</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#复制到redmine的plugin目录"><span class="nav-number">3.1.</span> <span class="nav-text">复制到redmine的plugin目录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#插件集成"><span class="nav-number">3.2.</span> <span class="nav-text">插件集成</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#环境变量设置"><span class="nav-number">3.2.1.</span> <span class="nav-text">环境变量设置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#代码评审插件集成"><span class="nav-number">3.2.2.</span> <span class="nav-text">代码评审插件集成</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#编辑器插件集成"><span class="nav-number">3.2.3.</span> <span class="nav-text">编辑器插件集成</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#插件使用"><span class="nav-number">4.</span> <span class="nav-text">插件使用</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#代码审核插件使用"><span class="nav-number">4.1.</span> <span class="nav-text">代码审核插件使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#编辑器插件使用"><span class="nav-number">4.2.</span> <span class="nav-text">编辑器插件使用</span></a></li></ol></li></ol></div>
+            
+          </div>
+          <div class="post-toc-indicator-bottom post-toc-indicator"></div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner"> <div class="copyright" >
+  
+  &copy; &nbsp; 
+  <span itemprop="copyrightYear">2015</span>
+  <span class="with-love">
+    <i class="icon-next-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">宋英杰</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+ </div>
+    </footer>
+
+    <div class="back-to-top"></div>
+  </div>
+
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  
+  
+    
+    
+
+  
+
+
+  
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
+  <script type="text/javascript" src="/js/fancy-box.js?v=0.4.5.1"></script>
+
+
+  <script type="text/javascript" src="/js/helpers.js?v=0.4.5.1"></script>
+  
+
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+
+  <script type="text/javascript" src="/js/motion_global.js?v=0.4.5.1" id="motion.global"></script>
+
+
+
+
+  <script type="text/javascript" src="/js/nav-toggle.js?v=0.4.5.1"></script>
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  
+<script type="text/javascript" src="/js/bootstrap.scrollspy.js?v=0.4.5.1" id="bootstrap.scrollspy.custom"></script>
+
+
+<script type="text/javascript" id="sidebar.toc.highlight">
+  $(document).ready(function () {
+    var tocSelector = '.post-toc';
+    var $tocSelector = $(tocSelector);
+    var activeCurrentSelector = '.active-current';
+
+    $tocSelector
+      .on('activate.bs.scrollspy', function () {
+        var $currentActiveElement = $(tocSelector + ' .active').last();
+
+        removeCurrentActiveClass();
+        $currentActiveElement.addClass('active-current');
+
+        $tocSelector[0].scrollTop = $currentActiveElement.position().top;
+      })
+      .on('clear.bs.scrollspy', function () {
+        removeCurrentActiveClass();
+      });
+
+    function removeCurrentActiveClass () {
+      $(tocSelector + ' ' + activeCurrentSelector)
+        .removeClass(activeCurrentSelector.substring(1));
+    }
+
+    function processTOC () {
+      getTOCMaxHeight();
+      toggleTOCOverflowIndicators();
+    }
+
+    function getTOCMaxHeight () {
+      var height = $('.sidebar').height() -
+                   $tocSelector.position().top -
+                   $('.post-toc-indicator-bottom').height();
+
+      $tocSelector.css('height', height);
+
+      return height;
+    }
+
+    function toggleTOCOverflowIndicators () {
+      tocOverflowIndicator(
+        '.post-toc-indicator-top',
+        $tocSelector.scrollTop() > 0 ? 'show' : 'hide'
+      );
+
+      tocOverflowIndicator(
+        '.post-toc-indicator-bottom',
+        $tocSelector.scrollTop() >= $tocSelector.find('ol').height() - $tocSelector.height() ? 'hide' : 'show'
+      )
+    }
+
+    $(document).on('sidebar.motion.complete', function () {
+      processTOC();
+    });
+
+    $('body').scrollspy({ target: tocSelector });
+    $(window).on('resize', function () {
+      if ( $('.sidebar').hasClass('sidebar-active') ) {
+        processTOC();
+      }
+    });
+
+    onScroll($tocSelector);
+
+    function onScroll (element) {
+      element.on('mousewheel DOMMouseScroll', function (event) {
+          var oe = event.originalEvent;
+          var delta = oe.wheelDelta || -oe.detail;
+
+          this.scrollTop += ( delta < 0 ? 1 : -1 ) * 30;
+          event.preventDefault();
+
+          toggleTOCOverflowIndicators();
+      });
+    }
+
+    function tocOverflowIndicator (indicator, action) {
+      var $indicator = $(indicator);
+      var opacity = action === 'show' ? 0.4 : 0;
+      $indicator.velocity ?
+        $indicator.velocity('stop').velocity({
+          opacity: opacity
+        }, { duration: 100 }) :
+        $indicator.stop().animate({
+          opacity: opacity
+        }, 100);
+    }
+
+  });
+</script>
+
+<script type="text/javascript" id="sidebar.nav">
+  $(document).ready(function () {
+    var html = $('html');
+    var TAB_ANIMATE_DURATION = 200;
+    var hasVelocity = $.isFunction(html.velocity);
+
+    $('.sidebar-nav li').on('click', function () {
+      var item = $(this);
+      var activeTabClassName = 'sidebar-nav-active';
+      var activePanelClassName = 'sidebar-panel-active';
+      if (item.hasClass(activeTabClassName)) {
+        return;
+      }
+
+      var currentTarget = $('.' + activePanelClassName);
+      var target = $('.' + item.data('target'));
+
+      hasVelocity ?
+        currentTarget.velocity('transition.slideUpOut', TAB_ANIMATE_DURATION, function () {
+          target
+            .velocity('stop')
+            .velocity('transition.slideDownIn', TAB_ANIMATE_DURATION)
+            .addClass(activePanelClassName);
+        }) :
+        currentTarget.animate({ opacity: 0 }, TAB_ANIMATE_DURATION, function () {
+          currentTarget.hide();
+          target
+            .stop()
+            .css({'opacity': 0, 'display': 'block'})
+            .animate({ opacity: 1 }, TAB_ANIMATE_DURATION, function () {
+              currentTarget.removeClass(activePanelClassName);
+              target.addClass(activePanelClassName);
+            });
+        });
+
+      item.siblings().removeClass(activeTabClassName);
+      item.addClass(activeTabClassName);
+    });
+
+    $('.post-toc a').on('click', function (e) {
+      e.preventDefault();
+      var targetSelector = escapeSelector(this.getAttribute('href'));
+      var offset = $(targetSelector).offset().top;
+      hasVelocity ?
+        html.velocity('stop').velocity('scroll', {
+          offset: offset  + 'px',
+          mobileHA: false
+        }) :
+        $('html, body').stop().animate({
+          scrollTop: offset
+        }, 500);
+    });
+
+    // Expand sidebar on post detail page by default, when post has a toc.
+    var $tocContent = $('.post-toc-content');
+    if (isDesktop() && CONFIG.sidebar === 'post') {
+      if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+        displaySidebar();
+      }
+    }
+  });
+</script>
+
+
+
+  <script type="text/javascript">
+    $(document).ready(function () {
+      if (CONFIG.sidebar === 'always') {
+        displaySidebar();
+      }
+      if (isMobile()) {
+        FastClick.attach(document.body);
+      }
+    });
+  </script>
+
+  
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/lazyload.js"></script>
+  <script type="text/javascript">
+    $(function () {
+      $("#posts").find('img').lazyload({
+        placeholder: "/images/loading.gif",
+        effect: "fadeIn"
+      });
+    });
+  </script>
+</body>
+</html>
