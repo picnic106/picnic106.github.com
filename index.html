@@ -164,6 +164,102 @@
           
           
             
+              <a class="post-title-link" href="/2015/08/31/python替换文件内容/" itemprop="url">
+                python替换文件内容
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于
+          <time itemprop="dateCreated" datetime="2015-08-31T00:46:22+08:00" content="2015-08-31">
+            2015-08-31
+          </time>
+        </span>
+
+        
+          <span class="post-category" >
+            &nbsp; | &nbsp; 分类于
+            
+              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <a href="/categories/python/" itemprop="url" rel="index">
+                  <span itemprop="name">python</span>
+                </a>
+              </span>
+
+              
+              
+
+            
+          </span>
+        
+
+        
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <h2 id="需求">需求</h2><p>这几天在把博客从octopress迁移到hexo，因为octopress是用ruby写的，依赖了太多东西，而且生成文章慢。迁移过程中我发现三个不同点：  </p>
+<ol>
+<li>octopress中的文章yaml标记和hexo还是有一些区别，例如octopress中的categories更像hexo中的tags，而hexo中的categories是有层次和序列的，和octopress中的categories不是一个概念。   </li>
+<li>octopress中使用的代码高亮插件是coderay，但是在hexo中却是codeblock。  </li>
+<li>在hexo中，代表段落的<code>#</code>，后面需要加空格，但是octopress却不需要。</li>
+<li>octopress中如果要加目录需要使用,但是在hexo中，不需要这么做，hexo会自动生成:<figure class="highlight md"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="bullet">* </span>any list</span><br><span class="line">&#123;:toc&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>所以这里有三个地方需要批量操作文件修改，修改yaml、将coderay替换为codeblock、删除octopress中的目录生成代码。<br>其实一直想学python，正好有机会，就拿这个批量修改文件的需求练练手。  </p>
+<h2 id="python批量修改文件">python批量修改文件</h2><p>通过一天的学习发现python相对于java有几大不同点：</p>
+<ol>
+<li>变量不用申明什么类型，java是一定要申明的;</li>
+<li>不用将代码内容放到大括号内，python使用四个空格缩进来表明一个方法或者一个类的结束，for或者条件判断使用冒号，显示进入代码内容;</li>
+<li>最大的不同python是脚本语言，不用编译再运行，直接运行即可；</li>
+<li>代码相较于java要简洁许多，例如打开文件流，java至少四五行，而python一行就行:<code>open(fileObj,&#39;r+&#39;,encoding= &#39;utf-8&#39;)</code>。  </li>
+</ol>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2015/08/31/python替换文件内容/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
               <a class="post-title-link" href="/2015/01/12/redmine-svn-https/" itemprop="url">
                 redmine通过https集成svn
               </a>
@@ -760,73 +856,6 @@
 
 
     
-      
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      
-      
-        <h1 class="post-title" itemprop="name headline">
-          
-          
-            
-              <a class="post-title-link" href="/2014/10/23/cs/" itemprop="url">
-                爱不是真正的解药
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          发表于
-          <time itemprop="dateCreated" datetime="2014-10-23T09:26:21+08:00" content="2014-10-23">
-            2014-10-23
-          </time>
-        </span>
-
-        
-
-        
-          
-        
-      </div>
-    </header>
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <span itemprop="articleBody"><p><blockquote><p>首先是对创伤病因的曲解。比如很多电影都会这样表现：如果一个人患有某种精神疾病，那么肯定他在过去经历过一些可怕的事情，比如童年阴影什么的。《三面夏娃》（The Three Faces of  Eve）和其他描写解离性障碍的电影，通常都会将病患描写成童年时受到过身体或性方面的虐待。你估计看过《天涯沦落两心知》（The Fisher King）吧？里面的罗宾·威廉姆斯在塑造那个精神分裂症病人上做得确实不错，可他的这种病症却来源于未婚妻在餐厅被杀害的经历。实际上，此类经历通常会导致的是创伤后应激障碍，但不会成为精神分裂症。其实很多发展成精神病的患者，在过去的人生中并没有创伤历史。</p>
-<p>此外还有一种特别有害的曲解，就是认为患有精神分裂症等精神疾病的患者，一定有不完整的家庭，或者有一对糟糕的父母，然后就是相信爱会战胜心理病魔什么的。我不是说爱不重要，它的确会提供一种支持，也能帮患者的家人渡过难关；但爱不是真正的解药，爱没法让你的精神分裂症痊愈。</p>
-</blockquote>  –摘抄自:<a href="http://www.vice.cn/index.php/Read/hollywood-sucks-at-portraying-mental-illness" target="_blank" rel="external">我们跟一位心理学家聊了聊好莱坞电影里的精神病们</a>  </p>
-<p>记得小时候，某个同学的妈妈是精神病，我们看到她都远远躲开。其实我们对精神病人存在极大的误解和恐惧，不敢靠近，以为精神病人一定有暴力倾向。  </p>
-<p>其实在我潜意识里，精神疾病貌似总是和什么童年阴影有关系，或者爱可以治愈他们，电影电视里也是这么演的。例如某个同学有抑郁症，是因为她爸抛弃他们，然后她各种亲朋好友，给她爱和关怀。但是”爱不是不重要，它的确会提供一种支持，也能帮患者的家人渡过难关；但爱不是真正的解药，爱没法让你的精神分裂症痊愈。“</p>
-<p>我们要帮助他们，通过科学的方法治愈他们的疾病。</p>
-</span>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -865,21 +894,21 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">35</span>
+              <span class="site-state-item-count">36</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
 
           <div class="site-state-item site-state-categories">
             
-              <span class="site-state-item-count">0</span>
+              <span class="site-state-item-count">1</span>
               <span class="site-state-item-name">分类</span>
               
           </div>
 
           <div class="site-state-item site-state-tags">
             <a href="/tags">
-              <span class="site-state-item-count">12</span>
+              <span class="site-state-item-count">13</span>
               <span class="site-state-item-name">标签</span>
               </a>
           </div>
