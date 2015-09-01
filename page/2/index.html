@@ -164,6 +164,76 @@
           
           
             
+              <a class="post-title-link" href="/2014/12/22/run-log20141213/" itemprop="url">
+                跑步日记(2014年12月13日)
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于
+          <time itemprop="dateCreated" datetime="2014-12-22T00:20:54+08:00" content="2014-12-22">
+            2014-12-22
+          </time>
+        </span>
+
+        
+
+        
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody"><p>今天腰不疼，脚掌内侧肌肉也没那么酸，但是左小腿前面的肌肉却在跑第一公里的时候就异常感觉紧，不是酸，不是疼，是感觉肌肉在拉扯着小腿骨头，感觉肌肉就要在小腿骨头上拉断。    </p>
+<p>跑到第三公里的时候呼吸开始均匀，慢慢进入跑步的节奏！但是小腿前面肌肉的拉扯感一直无法消除，思绪一直在怎样解决这种撕扯感。包括减少小腿用力，把力量都集中到大腿；包括减少左腿的用力，把力量集中到右腿，但是一直不奏效。只能忍着跑，使用毅力坚持。  </p>
+<p>直到第五公里撕扯感减轻，但是左腿脚踝也开始酸疼起来，应该是全身重量都集中在脚步，又跑了这么久，这些小酸疼应该都在正常范围！  </p>
+<p>但是左小腿的拉扯感，一直断断续续。一放松就感觉到拉扯。  </p>
+<p>之前一直有这种情况，而且很奇怪都湿集中在左脚！！难道我左脚真的短一点。导致重量往左脚倾斜？？这个还需要测试！！   </p>
+<p>今天总体感觉不错，如果左小腿不拉扯，应该可以跑十公里！或者更长！因为越到后面节奏越稳定！跑到弟七公里的时候肚子开始饥饿，看来以后如果要长跑，要自带点干粮，一根巧克力或者士力架，补充体力！           </p>
+<p>保暖内衣是一定要买的，虽然冷天热量消耗没有夏天多，但是还是会大量出汗。今天跑完整个上半身都是湿的，在寒风中特别冷！   </p>
+<p>下周继续加油！！继续寻找左脚小腿拉扯的原因，并解决，如果这个问题不解决，马拉松是跑不了的！！！  </p>
+<p><img src="/images/run/share_tmp20141213.png" alt="20141213跑步记录"></p>
+</span>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
               <a class="post-title-link" href="/2014/12/22/run-log/" itemprop="url">
                 跑步日记(2014年12月06日)
               </a>
@@ -763,75 +833,6 @@
 
 
     
-      
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      
-      
-        <h1 class="post-title" itemprop="name headline">
-          
-          
-            
-              <a class="post-title-link" href="/2014/10/03/deploying-with-rsync/" itemprop="url">
-                【翻译】部署到Rsync
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          发表于
-          <time itemprop="dateCreated" datetime="2014-10-03T23:23:46+08:00" content="2014-10-03">
-            2014-10-03
-          </time>
-        </span>
-
-        
-
-        
-          
-        
-      </div>
-    </header>
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <h2 id="通过SSH部署rsync">通过SSH部署rsync</h2><p>将你的服务器配置加到Rsync部署配置目录的<code>rakefile</code>文件下。部署到rsync，确认你的公钥在文件<code>~/.ssh/authorized_keys</code>文件里列出来了。  </p>
-<figure class="highlight ruby"><figcaption><span>authorized_keys</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ssh_user       = <span class="string">"user@domain.com"</span></span><br><span class="line">document_root  = <span class="string">"~/website.com/"</span></span><br><span class="line">rsync_delete   = <span class="keyword">true</span></span><br><span class="line">deploy_default = <span class="string">"rsync"</span></span><br></pre></td></tr></table></figure>  
-<p>下一步运行  </p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">rake generate   <span class="comment"># If you haven't generated your blog yet</span></span><br><span class="line">rake deploy     <span class="comment"># Syncs your blog via ssh</span></span><br></pre></td></tr></table></figure>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2014/10/03/deploying-with-rsync/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -870,21 +871,21 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">37</span>
+              <span class="site-state-item-count">38</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
 
           <div class="site-state-item site-state-categories">
             
-              <span class="site-state-item-count">2</span>
+              <span class="site-state-item-count">3</span>
               <span class="site-state-item-name">分类</span>
               
           </div>
 
           <div class="site-state-item site-state-tags">
             <a href="/tags">
-              <span class="site-state-item-count">11</span>
+              <span class="site-state-item-count">10</span>
               <span class="site-state-item-name">标签</span>
               </a>
           </div>
