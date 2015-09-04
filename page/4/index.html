@@ -24,11 +24,10 @@
 <link rel="stylesheet" type="text/css" href="/css/main.css?v=0.4.5.1"/>
 
 
-    <meta name="description" content="java | andriod | python | ruby" />
 
-
-
-  <meta name="keywords" content="java,ruby,android" />
+	
+	  <meta name="keywords" content="java,ruby,android" />
+	
 
 
 
@@ -152,6 +151,73 @@
       <div class="main-inner">
         <div id="content" class="content"> 
   <section id="posts" class="posts-expand">
+    
+      
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
+              <a class="post-title-link" href="/2014/09/24/octopress-surfaces/" itemprop="url">
+                【翻译】octopress2.0多面介绍
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          发表于
+          <time itemprop="dateCreated" datetime="2014-09-24T09:26:26+08:00" content="2014-09-24">
+            2014-09-24
+          </time>
+        </span>
+
+        
+
+        
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <h2 id="Octopress_2-0_介绍">Octopress 2.0 介绍</h2><p>Octopress是<a href="http://brandonmathis.com/">Brandon Mathis</a>为<a href="https://github.com/jekyll/jekyll">jekyll</a>设计的一个框架，jekyll是<a href="https://pages.github.com/">Github Pages</a>服务可以支持的博客形态的静态网站生成器。  </p>
+<p>使用jekyll来写博客，你不得不自己写html模板，css，js以及自己处理各种配置。但是octopress框架托管一切。简单的<a href="https://github.com/imathis/octopress">clone或者fork octopress</a>开源框架，安装依赖软件和主题，你就可以开始写博客了。  </p>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2014/09/24/octopress-surfaces/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
     
       
 
@@ -758,81 +824,11 @@ p{ white-space:pre-wrap;}
 
 
     
-      
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      
-      
-        <h1 class="post-title" itemprop="name headline">
-          
-          
-            
-              <a class="post-title-link" href="/2014/08/14/my-first-octopress-blog/" itemprop="url">
-                使用Octopress和github搭建个人博客
-              </a>
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          发表于
-          <time itemprop="dateCreated" datetime="2014-08-14T16:40:01+08:00" content="2014-08-14">
-            2014-08-14
-          </time>
-        </span>
-
-        
-
-        
-          
-        
-      </div>
-    </header>
-
-    <div class="post-body">
-
-      
-      
-
-      
-        
-          <h1 id="一、缘起">一、缘起</h1><p>&emsp;&emsp;一直想搭建一个自己的博客，用于技术积累的记录。例如有些技术问题会一而再、再而三的出现，但是还是每次要上网查找或者花时间回忆解决办法；例如在项目管理中出现的一些感悟，可能是一闪而过，如果不记录下来下次很难再想起来。虽然目前自己有一个技术积累库，记录在word文档里，有两个缺点，一是查找不方便，第二个是不能用于其他码农的相互借鉴：我的解决办法是不是最优解决办法？我的想法是不是有偏差？</p>
-<p>&emsp;&emsp;所以花时间搭建了这么一个octopress的博客系统。之前看过wordpress的搭建方法，安装文件越来越大，里面自带的东西也越来越多，php、apache、mysql学习成本也很大。最主要的是需要自己去购买空间安装这些组件。但是我只是需要一个写博客记录并发布给其他志同道合的朋友看而已，为何要这么庞大？所以就一直搁浅。如果我能有一个很方便写博客，且又不需要自己购买空间的方法该有多好！或者是自己太贪心了些。</p>
-<p>&emsp;&emsp;正好最近对github感兴趣，听说github是一个在线版本控制平台，许多开源项目都托管在上面，对传统版本控制存有疑虑的人来说，github应该是一个极好的版本控制工具。虽然目前自己也还没有弄明白git的使用方法和规范。某次搜索又看到一篇博文说可以利用github为每个用户以及开源项目创建主页的特性，来创建自己的博客，且不用购买空间来部署，因为github提供jekyll的静态网站生成器。静态网站的一个优势是，不需要用到数据库，文章存储在一个标准的静态网页文件里，随意占用空间小部署简单。我们只需要编写jekyll能解析的轻量级的标签语言(Markdown、Liquid等)书写博客，就可以将博客托管给github。</p>
-<p>&emsp;&emsp;但是出于安全问题有些jekyll插件，github不提供解析服务，例如评论、分享功能，但是github提供静态页面解析服务。所以我们可以自己下载jekyll，将轻量级的标签语言转化为静态页面之后，再上传到github，就可以使用博客的一般功能。但是直接使用jekyll可能会带来一些学习成本，所以我找了octopress，这是一个jekyll的博客发布框架，无缝集成git。</p>
-<p>&emsp;&emsp;下面具体介绍如何使用这些工具搭建一个轻量级的静态网页博客。<br>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2014/08/14/my-first-octopress-blog/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/3/">&laquo;</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span>
+    <a class="extend prev" rel="prev" href="/page/3/">&laquo;</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/5/">&raquo;</a>
   </nav>
 
  </div>
@@ -866,21 +862,21 @@ p{ white-space:pre-wrap;}
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">40</span>
+              <span class="site-state-item-count">41</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
 
           <div class="site-state-item site-state-categories">
             
-              <span class="site-state-item-count">4</span>
+              <span class="site-state-item-count">5</span>
               <span class="site-state-item-name">分类</span>
               
           </div>
 
           <div class="site-state-item site-state-tags">
             <a href="/tags">
-              <span class="site-state-item-count">11</span>
+              <span class="site-state-item-count">16</span>
               <span class="site-state-item-name">标签</span>
               </a>
           </div>

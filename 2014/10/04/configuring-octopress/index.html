@@ -24,11 +24,10 @@
 <link rel="stylesheet" type="text/css" href="/css/main.css?v=0.4.5.1"/>
 
 
-    <meta name="description" content="java | andriod | python | ruby" />
 
-
-
-  <meta name="keywords" content="octopress," />
+    
+	   <meta name="keywords" content="octopress,翻译octopress文档,octopress配置" />
+	
 
 
 
@@ -37,22 +36,16 @@
   <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1" />
 
 
-<meta name="description" content="上一篇文章：octopress安装
-Octopress配置我尝试着让octopress的配置尽量简单，你很可能只需要修改rakefile以及_config.yml。底下是octopress配置文件的列表：  
-octopress配置文件列表1234_config.yml       # 主要配置文件 (Jekyll的设置)Rakefile          # 部署配置config.rb">
+<meta name="description" content="octopress配置">
 <meta property="og:type" content="article">
 <meta property="og:title" content="【翻译】Octopress配置">
 <meta property="og:url" content="http://twalksong.com/2014/10/04/configuring-octopress/index.html">
 <meta property="og:site_name" content="宁静的心">
-<meta property="og:description" content="上一篇文章：octopress安装
-Octopress配置我尝试着让octopress的配置尽量简单，你很可能只需要修改rakefile以及_config.yml。底下是octopress配置文件的列表：  
-octopress配置文件列表1234_config.yml       # 主要配置文件 (Jekyll的设置)Rakefile          # 部署配置config.rb">
-<meta property="og:updated_time" content="2015-08-30T03:59:40.794Z">
+<meta property="og:description" content="octopress配置">
+<meta property="og:updated_time" content="2015-09-04T16:53:36.503Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【翻译】Octopress配置">
-<meta name="twitter:description" content="上一篇文章：octopress安装
-Octopress配置我尝试着让octopress的配置尽量简单，你很可能只需要修改rakefile以及_config.yml。底下是octopress配置文件的列表：  
-octopress配置文件列表1234_config.yml       # 主要配置文件 (Jekyll的设置)Rakefile          # 部署配置config.rb">
+<meta name="twitter:description" content="octopress配置">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -203,7 +196,7 @@ octopress配置文件列表1234_config.yml       # 主要配置文件 (Jekyll的
 <p>Rakefile文件里面的配置关联的几乎都是部署，你甚至都不需要接触他们，除非你使用rsync。  </p>
 <a id="more"></a>  
 <h2 id="博客配置">博客配置</h2><p>在<code>_config.yml</code>有三个部分是用于配置你的octopress博客。注意：你必须改变<code>url</code>,你很可能改变<code>title</code>,<code>subtitle</code>以及使用第三方服务。  </p>
-<figure class="highlight xml"><figcaption><span>octopress配置文件</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">url:                # 为RSS重新url, 等等。</span><br><span class="line">title:              # 在页的头和标题标签使用</span><br><span class="line">subtitle:           # 在头里面的描述</span><br><span class="line">author:             # 为RSS的作者, Copyright, Metadata</span><br><span class="line">simple_search:      # 简单的搜索引擎</span><br><span class="line">date_format:        # 使用ruby的时间格式化</span><br><span class="line">subscribe_rss:      # 你的博客源订阅url，默认是到/atom.xml</span><br><span class="line">subscribe_email:    # 邮件订阅email</span><br><span class="line">category_feeds:     # 使用每一个类别rss源订阅</span><br><span class="line">email:              # Email address for the RSS feed if you want it.</span><br></pre></td></tr></table></figure>   
+<figure class="highlight xml"><figcaption><span>octopress配置文件</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">url:                # 为RSS重新url, 等等。</span><br><span class="line">title:              # 在页的头和标题标签使用</span><br><span class="line">subtitle:           # 在头里面的描述</span><br><span class="line">author:             # 为RSS的作者, Copyright, Metadata</span><br><span class="line">simple_search:      # 简单的搜索引擎</span><br><span class="line">description:        # 为你的站点默认的描述</span><br><span class="line">date_format:        # 使用ruby的时间格式化</span><br><span class="line">subscribe_rss:      # 你的博客源订阅url，默认是到/atom.xml</span><br><span class="line">subscribe_email:    # 邮件订阅email</span><br><span class="line">category_feeds:     # 使用每一个类别rss源订阅</span><br><span class="line">email:              # Email address for the RSS feed if you want it.</span><br></pre></td></tr></table></figure>   
 <p>注意：假如你的站点是多作者，你也许想要设置配置文件里面的<code>author</code>为你们项目或者公司的名称，然后加作者元数据到文章或者页面，为这些工作添加合适的属性。  </p>
 <h2 id="Jekyll_&amp;_Plugins">Jekyll &amp; Plugins</h2><p>这些配置被 Jekyll以及插件使用。假如你不熟悉Jekyll，你也许需要看一下<a href="https://github.com/jekyll/jekyll/wiki/Configuration" target="_blank" rel="external">配置文档</a>，这个文档列出了这儿没有覆盖的更多属性。  </p>
 <figure class="highlight xml"><figcaption><span>octopress配置文件</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">root:               # Mapping for relative urls (default: /)</span><br><span class="line">permalink:          # Permalink structure for blog posts</span><br><span class="line">source:             # Directory for site source files</span><br><span class="line">destination:        # Directory for generated site files</span><br><span class="line">plugins:            # Directory for Jekyll plugins</span><br><span class="line">code_dir:           # Directory for code snippets (for include_code plugin)</span><br><span class="line">category_dir:       # Directory for generated blog category pages</span><br><span class="line"> </span><br><span class="line">pygments:           # Toggle python pygments syntax highlighting</span><br><span class="line">paginate:           # Posts per page on the blog index</span><br><span class="line">pagination_dir:     # Directory base for pagination URLs eg. /blog/page/2/</span><br><span class="line">recent_posts:       # Number of recent posts to appear in the sidebar</span><br><span class="line"> </span><br><span class="line">default_asides:     # Configure what shows up in the sidebar and in what order</span><br><span class="line">blog_index_asides:  # Optional sidebar config for blog index page</span><br><span class="line">post_asides:        # Optional sidebar config for post layout</span><br><span class="line">page_asides:        # Optional sidebar config for page layout</span><br></pre></td></tr></table></figure>   
@@ -308,21 +301,21 @@ octopress配置文件列表1234_config.yml       # 主要配置文件 (Jekyll的
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">40</span>
+              <span class="site-state-item-count">41</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
 
           <div class="site-state-item site-state-categories">
             
-              <span class="site-state-item-count">4</span>
+              <span class="site-state-item-count">5</span>
               <span class="site-state-item-name">分类</span>
               
           </div>
 
           <div class="site-state-item site-state-tags">
             <a href="/tags">
-              <span class="site-state-item-count">11</span>
+              <span class="site-state-item-count">16</span>
               <span class="site-state-item-name">标签</span>
               </a>
           </div>

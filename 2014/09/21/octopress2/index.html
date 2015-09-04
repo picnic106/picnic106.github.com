@@ -24,11 +24,10 @@
 <link rel="stylesheet" type="text/css" href="/css/main.css?v=0.4.5.1"/>
 
 
-    <meta name="description" content="java | andriod | python | ruby" />
 
-
-
-  <meta name="keywords" content="octopress," />
+    
+	   <meta name="keywords" content="octopress目录结构,jekyll目录结构,jekyll,octopress" />
+	
 
 
 
@@ -37,19 +36,16 @@
   <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1" />
 
 
-<meta name="description" content="一、缘起总感觉还得写一篇进阶版，将octopress的原理说一说、与jekyll的关系说一说。我觉得应该先说明jekyll是什么，毕竟octopress的精髓是jekyll。
-二、jekyll其实一直是想要搭建一个博客，但是碍于最流行的wordperss实在是太过复杂，我只是想要发布我的内容而已，为什么还要干这么多事？要安装php、要安装mysql，还有各种配置，为啥？后来不了了知。其实还是创造力">
+<meta name="description" content="octopress目录结构,jekyll目录结构,jekyll,octopress">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Octopress知识进阶:目录结构">
 <meta property="og:url" content="http://twalksong.com/2014/09/21/octopress2/index.html">
 <meta property="og:site_name" content="宁静的心">
-<meta property="og:description" content="一、缘起总感觉还得写一篇进阶版，将octopress的原理说一说、与jekyll的关系说一说。我觉得应该先说明jekyll是什么，毕竟octopress的精髓是jekyll。
-二、jekyll其实一直是想要搭建一个博客，但是碍于最流行的wordperss实在是太过复杂，我只是想要发布我的内容而已，为什么还要干这么多事？要安装php、要安装mysql，还有各种配置，为啥？后来不了了知。其实还是创造力">
-<meta property="og:updated_time" content="2015-08-30T03:59:40.768Z">
+<meta property="og:description" content="octopress目录结构,jekyll目录结构,jekyll,octopress">
+<meta property="og:updated_time" content="2015-09-04T16:53:36.398Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Octopress知识进阶:目录结构">
-<meta name="twitter:description" content="一、缘起总感觉还得写一篇进阶版，将octopress的原理说一说、与jekyll的关系说一说。我觉得应该先说明jekyll是什么，毕竟octopress的精髓是jekyll。
-二、jekyll其实一直是想要搭建一个博客，但是碍于最流行的wordperss实在是太过复杂，我只是想要发布我的内容而已，为什么还要干这么多事？要安装php、要安装mysql，还有各种配置，为啥？后来不了了知。其实还是创造力">
+<meta name="twitter:description" content="octopress目录结构,jekyll目录结构,jekyll,octopress">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -215,7 +211,7 @@
 <p>默认配置  </p>
 <figure class="highlight"><figcaption><span>yaml头信息</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source:      .                         #Jekyll &#35835;&#21462;&#25991;&#20214;&#30340;&#36335;&#24452;&#10;destination: ./_site                   #Jekyll &#20889;&#20837;&#25991;&#20214;&#30340;&#36335;&#24452;&#10;plugins:     ./_plugins                &#10;layouts:     ./_layouts          &#10;include:     [&#39;.htaccess&#39;]             #&#36716;&#25442;&#26102;&#24378;&#21046;&#21253;&#21547;&#26576;&#20123;&#25991;&#20214;&#12289;&#25991;&#20214;&#22841;&#12290;.htaccess &#26159;&#20010;&#20856;&#22411;&#30340;&#20363;&#23376;&#65292;&#22240;&#20026;&#40664;&#35748;&#25490;&#38500; . &#24320;&#22836;&#30340;&#25991;&#20214;&#12290;&#10;exclude:     []&#10;keep_files:  [&#39;.git&#39;,&#39;.svn&#39;]&#10;timezone:    nil&#10;encoding:    nil&#10;&#10;future:      true&#10;show_drafts: nil&#10;limit_posts: 0&#10;pygments:    true&#10;&#10;relative_permalinks: true&#10;&#10;permalink:     date&#10;paginate_path: &#39;page:num&#39;&#10;&#10;markdown:      maruku&#10;markdown_ext:  markdown,mkd,mkdn,md&#10;textile_ext:   textile&#10;&#10;excerpt_separator: &#34;\n\n&#34;&#10;&#10;safe:        false&#10;watch:       false    # deprecated&#10;server:      false    # deprecated&#10;host:        0.0.0.0                           #&#30417;&#21548;&#25152;&#32473;&#30340;&#20027;&#26426;&#21517;&#10;port:        4000                              #&#30417;&#21548;&#25152;&#32473;&#30340;&#31471;&#21475;&#10;baseurl:     /                                 #&#32593;&#31449;&#30340;&#26681;&#36335;&#24452;&#10;url:         http://localhost:4000&#10;lsi:         false&#10;&#10;maruku:&#10;  use_tex:    false&#10;  use_divs:   false&#10;  png_engine: blahtex&#10;  png_dir:    images/latex&#10;  png_url:    /images/latex&#10;&#10;rdiscount:&#10;  extensions: []&#10;&#10;redcarpet:&#10;  extensions: []&#10;&#10;kramdown:&#10;  auto_ids: true&#10;  footnote_nr: 1&#10;  entity_output: as_char&#10;  toc_levels: 1..6&#10;  smart_quotes: lsquo,rsquo,ldquo,rdquo&#10;  use_codeblock: false&#10;&#10;  codeblock:&#10;    codeblock_wrap: div&#10;    codeblock_line_numbers: inline&#10;    codeblock_line_numbers_start: 1&#10;    codeblock_tab_width: 4&#10;    codeblock_bold_every: 10&#10;    codeblock_css: style&#10;&#10;redcloth:&#10;  hard_breaks: true</span><br></pre></td></tr></table></figure>  
 <h2 id="2-4、头信息">2.4、头信息</h2><p>正是头信息开始让 Jekyll 变的很酷。任何只要包含 <a href="http://yaml.org/" target="_blank" rel="external">YAML</a> 头信息的文件在 Jekyll 中都能被当做一个特殊的文件来处理。头信息必须在文件的开始部分，并且需要按照 YAML 的格式写在两行三虚线之间。下面是一个基本的例子：  </p>
-<figure class="highlight"><figcaption><span>yaml头信息</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">layout: post&#10;title: &#34;Octopress&#30693;&#35782;&#36827;&#38454;&#34;&#10;date: 2014-09-21 00:28:13 +0800&#10;comments: true&#10;tags: [octopress]&#10;keywords: octopress</span><br></pre></td></tr></table></figure>  
+<figure class="highlight"><figcaption><span>yaml头信息</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">layout: post&#10;title: &#34;Octopress&#30693;&#35782;&#36827;&#38454;&#34;&#10;date: 2014-09-21 00:28:13 +0800&#10;comments: true&#10;tags: [octopress]&#10;description: &#34;Octopress&#30693;&#35782;&#36827;&#38454;&#34;&#10;keywords: octopress</span><br></pre></td></tr></table></figure>  
 <p>在这两行的三虚线之间，你可以设置一些预定义的变量（下面这个例子可以作为参考）或者甚至创建一个你自己定义的变量。这样在接下来的文件和任意模板中或者在包含这些页面或博客的模板中都可以通过使用 Liquid 标签来访问这些变量。  </p>
 <h1 id="三、octopress">三、octopress</h1><p>现在知道有这么一个静态网站生成器叫jekyll，但是这个还是有点复杂，因为你在写博客之前，你需要先设计你博客的样式，例如头显示什么，尾巴显示什么，边框是什么样子，然后用什么技术，写大量的js大量的css。我们还是要过多关注于博客的样子，博客的目录，而不是内容。所以我想有没有一个托管程序，可以先都帮我们设置好了，安装样式也很简单，不需要过多设置，我拿过来直接写文章就可以。所以网上搜，还真有，而且挺多，最终选择使用<a href="http://octopress.org/" target="_blank" rel="external">octopress</a>。  </p>
 <h2 id="3-1、octopress描述">3.1、octopress描述</h2><p>octopress是Brandon Mathis为jekyll而设计的一个框架。使用jekyll你不得不写你自己的html模板，css,js,设置好自己的配置，但是octopress托管所有，简单的安装依赖软件，然后你就可以开始写文章了。  </p>
@@ -224,7 +220,7 @@
 <ol>
 <li>jekyll中的_config.yml文件移到octopress的根目录下，且增加了新内容。在Octopress 的_config.yml中有三个部分的<a href="http://octopress.org/docs/configuring/" target="_blank" rel="external">配置</a>。我自己博客的配置如下(只展示我修改过的地方)：  </li>
 </ol>
-<figure class="highlight"><figcaption><span>_config.yml</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># &#31532;&#19968;&#37096;&#20998;&#20027;&#35201;&#37197;&#32622;&#10;url: twalksong.com&#10;title: &#23527;&#38748;&#33268;&#36960;&#10;subtitle: &#28954;&#33167;&#27833;&#20197;&#32380;&#26231;&#65292;&#24646;&#20800;&#20800;&#20197;&#31406;&#24180;&#12290;&#10;author: songyj&#10;simple_search: http://www.baidu.com/&#10;email: picnic106@163.com&#10;&#10;# &#31532;&#20108;&#37096;&#20998;&#25554;&#20214;&#10;markdown: kramdown&#10;kramdown:&#10;#  toc_levels: 1..3&#10;  use_codeblock: true&#10;  codeblock:&#10;&#9;codeblock_line_numbers: table&#10;&#9;codeblock_css: class&#10;&#10;excerpt_link: &#34;&#38405;&#35835;&#20840;&#25991; &#38;rarr;&#34;  # &#34;Continue reading&#34; link text at the bottom of excerpted articles&#10;&#10;# &#31532;&#19977;&#37096;&#20998;&#31038;&#20132;&#24080;&#21495;&#37197;&#32622;&#65292;&#20363;&#22914;Github &#65292;Twitter &#65292;Facebook &#31561;&#10;github_user: picnic106&#10;github_repo_count: 1&#10;github_show_profile_link: true&#10;github_skip_forks: true&#10;google_analytics_tracking_id: &#10;duoshuo_comments: true&#10;duoshuo_short_name:</span><br></pre></td></tr></table></figure>
+<figure class="highlight"><figcaption><span>_config.yml</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># &#31532;&#19968;&#37096;&#20998;&#20027;&#35201;&#37197;&#32622;&#10;url: twalksong.com&#10;title: &#23527;&#38748;&#33268;&#36960;&#10;subtitle: &#28954;&#33167;&#27833;&#20197;&#32380;&#26231;&#65292;&#24646;&#20800;&#20800;&#20197;&#31406;&#24180;&#12290;&#10;author: songyj&#10;simple_search: http://www.baidu.com/&#10;description: &#36825;&#26159;&#30693;&#35782;&#31215;&#32047;&#19982;&#29983;&#21629;&#21746;&#24605;&#19968;&#21516;&#36856;&#21457;&#30340;&#22320;&#26041;&#12290;&#10;email: picnic106@163.com&#10;&#10;# &#31532;&#20108;&#37096;&#20998;&#25554;&#20214;&#10;markdown: kramdown&#10;kramdown:&#10;#  toc_levels: 1..3&#10;  use_codeblock: true&#10;  codeblock:&#10;&#9;codeblock_line_numbers: table&#10;&#9;codeblock_css: class&#10;&#10;excerpt_link: &#34;&#38405;&#35835;&#20840;&#25991; &#38;rarr;&#34;  # &#34;Continue reading&#34; link text at the bottom of excerpted articles&#10;&#10;# &#31532;&#19977;&#37096;&#20998;&#31038;&#20132;&#24080;&#21495;&#37197;&#32622;&#65292;&#20363;&#22914;Github &#65292;Twitter &#65292;Facebook &#31561;&#10;github_user: picnic106&#10;github_repo_count: 1&#10;github_show_profile_link: true&#10;github_skip_forks: true&#10;google_analytics_tracking_id: &#10;duoshuo_comments: true&#10;duoshuo_short_name:</span><br></pre></td></tr></table></figure>
 <ol>
 <li>.themes文件夹用于放置从github库下载下来的octopress的皮肤。这个文件夹下具体的作用还没有做详细的调查，这里暂且不说。  </li>
 <li>_deploy文件夹放置部署到github或者其他托管网站的源文件。即使用·rake deploy·命令之后，会同步更新此文件夹。</li>
@@ -320,21 +316,21 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">40</span>
+              <span class="site-state-item-count">41</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
 
           <div class="site-state-item site-state-categories">
             
-              <span class="site-state-item-count">4</span>
+              <span class="site-state-item-count">5</span>
               <span class="site-state-item-name">分类</span>
               
           </div>
 
           <div class="site-state-item site-state-tags">
             <a href="/tags">
-              <span class="site-state-item-count">11</span>
+              <span class="site-state-item-count">16</span>
               <span class="site-state-item-name">标签</span>
               </a>
           </div>
