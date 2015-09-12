@@ -46,7 +46,7 @@
 <meta property="og:image" content="http://twalksong.com/\images\pz\pub.jpg">
 <meta property="og:image" content="http://twalksong.com/\images\pz\banben.jpg">
 <meta property="og:image" content="http://twalksong.com/\images\pz\hh.jpg">
-<meta property="og:updated_time" content="2015-09-06T17:40:23.218Z">
+<meta property="og:updated_time" content="2015-09-12T19:11:00.193Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="从octopress转到hexo">
 <meta name="twitter:description" content="hexo,octopress,从octopress转到hexo">
@@ -217,6 +217,13 @@
 
     <div class="post-body">
 	
+	
+	<div class="post-toc2">
+            
+
+     <div class="post-toc-content"> <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#概述"><span class="nav-number">1.</span> <span class="nav-text">概述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#软件安装"><span class="nav-number">2.</span> <span class="nav-text">软件安装</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装git"><span class="nav-number">2.1.</span> <span class="nav-text">安装git</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装nodejs"><span class="nav-number">2.2.</span> <span class="nav-text">安装nodejs</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装npm"><span class="nav-number">2.3.</span> <span class="nav-text">安装npm</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装hexo"><span class="nav-number">2.4.</span> <span class="nav-text">安装hexo</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#hexo初始化"><span class="nav-number">3.</span> <span class="nav-text">hexo初始化</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#hexo测试是否成功"><span class="nav-number">3.1.</span> <span class="nav-text">hexo测试是否成功</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#_config-yml文件的配置"><span class="nav-number">4.</span> <span class="nav-text">_config.yml文件的配置</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#hexo相应命令"><span class="nav-number">5.</span> <span class="nav-text">hexo相应命令</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#将octopress博文迁移到hexo"><span class="nav-number">6.</span> <span class="nav-text">将octopress博文迁移到hexo</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#部署到github"><span class="nav-number">7.</span> <span class="nav-text">部署到github</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#hexo_git模块初始化"><span class="nav-number">7.1.</span> <span class="nav-text">hexo git模块初始化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#在github端加上本地的SSH_keys"><span class="nav-number">7.2.</span> <span class="nav-text">在github端加上本地的SSH keys</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#git介绍"><span class="nav-number">7.3.</span> <span class="nav-text">git介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#git初始化hexo部署库"><span class="nav-number">7.4.</span> <span class="nav-text">git初始化hexo部署库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#git开发工作流"><span class="nav-number">7.5.</span> <span class="nav-text">git开发工作流</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#git遇到的问题"><span class="nav-number">7.6.</span> <span class="nav-text">git遇到的问题</span></a></li></ol></li></ol></div>
+	 </div>
+    
 	
       
       
@@ -465,7 +472,7 @@
 </li>
 <li><p><code>hexo deploy</code>时候也没有报错，但是就是没有更新到github，如何解释？<br>后来发现是在_config.yml中名/值中要有空格例如：type：（空格）git。  </p>
 </li>
-<li><p>Error: Permission denied (publickey)<br>出现这个问题是没有将密钥加入到ssh-agent中，再执行一次<code>ssh-add ~/.ssh/id_rsa</code>就好了。  </p>
+<li><p>Error: Permission denied (publickey)<br>出现这个问题是没有将密钥加入到ssh-agent中，先<code>ssh-add -l</code>看是否存在ssh,没有再执行一次<code>ssh-add ~/.ssh/id_rsa</code>就好了。  </p>
 </li>
 </ol>
 </span>
@@ -486,6 +493,8 @@
       
         <div class="post-nav">
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/09/12/hexo进阶/" rel="prev">hexo进阶</a>
             
           </div>
 
@@ -553,7 +562,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">42</span>
+              <span class="site-state-item-count">43</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
