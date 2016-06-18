@@ -1,0 +1,654 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="octopress2.0多面介绍,octopress,翻译octopress文档,octopress文档" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="Octopress 2.0 介绍Octopress是Brandon Mathis为jekyll设计的一个框架，jekyll是Github Pages服务可以支持的博客形态的静态网站生成器。  
+使用jekyll来写博客，你不得不自己写html模板，css，js以及自己处理各种配置。但是octopress框架托管一切。简单的clone或者fork octopress开源框架，安装依赖软件和主题，你就">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【翻译】octopress2.0多面介绍">
+<meta property="og:url" content="http://twalksong.com/2014/09/24/octopress-surfaces/index.html">
+<meta property="og:site_name" content="践行者">
+<meta property="og:description" content="Octopress 2.0 介绍Octopress是Brandon Mathis为jekyll设计的一个框架，jekyll是Github Pages服务可以支持的博客形态的静态网站生成器。  
+使用jekyll来写博客，你不得不自己写html模板，css，js以及自己处理各种配置。但是octopress框架托管一切。简单的clone或者fork octopress开源框架，安装依赖软件和主题，你就">
+<meta property="og:updated_time" content="2016-06-04T18:34:21.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="【翻译】octopress2.0多面介绍">
+<meta name="twitter:description" content="Octopress 2.0 介绍Octopress是Brandon Mathis为jekyll设计的一个框架，jekyll是Github Pages服务可以支持的博客形态的静态网站生成器。  
+使用jekyll来写博客，你不得不自己写html模板，css，js以及自己处理各种配置。但是octopress框架托管一切。简单的clone或者fork octopress开源框架，安装依赖软件和主题，你就">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 6295330062220658000,
+      author: '博主'
+    }
+  };
+</script>
+
+  <title> 【翻译】octopress2.0多面介绍 | 践行者 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">践行者</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">人不能像走獸那樣活著，應該追求知識和美德。</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                【翻译】octopress2.0多面介绍
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2014-09-24T09:26:26+08:00" content="2014-09-24">
+              2014-09-24
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2014/09/24/octopress-surfaces/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2014/09/24/octopress-surfaces/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="Octopress-2-0-介绍"><a href="#Octopress-2-0-介绍" class="headerlink" title="Octopress 2.0 介绍"></a>Octopress 2.0 介绍</h2><p>Octopress是<a href="http://brandonmathis.com/" target="_blank" rel="external">Brandon Mathis</a>为<a href="https://github.com/jekyll/jekyll" target="_blank" rel="external">jekyll</a>设计的一个框架，jekyll是<a href="https://pages.github.com/" target="_blank" rel="external">Github Pages</a>服务可以支持的博客形态的静态网站生成器。  </p>
+<p>使用jekyll来写博客，你不得不自己写html模板，css，js以及自己处理各种配置。但是octopress框架托管一切。简单的<a href="https://github.com/imathis/octopress" target="_blank" rel="external">clone或者fork octopress</a>开源框架，安装依赖软件和主题，你就可以开始写博客了。  </p>
+<a id="more"></a>  
+<h3 id="2-0有什么新特性？"><a href="#2-0有什么新特性？" class="headerlink" title="2.0有什么新特性？"></a>2.0有什么新特性？</h3><p>简短的回答是：一切。基于<a href="https://github.com/jekyll/jekyll" target="_blank" rel="external">mojombo/jekyll</a>开发的Octopress已经使用满山的好特性从底层被完全重写。  </p>
+<p>Octopress有如下特性：  </p>
+<ul>
+<li>一个html5的语义模板</li>
+<li>第一个移动端响应布局（旋转或者调整您的浏览器观看）</li>
+<li>内置很多第三方支持，例如：Twitter、Google Plus One、Disqus Comments、Pinboard、Delicious以及Google Analytics</li>
+<li>使用Github pages或者Rsync，具有很简单的部署策略</li>
+<li>内置POW或者Rack服务</li>
+<li>很容易的使用Compass和Sass来构建主题</li>
+<li>很漂亮的<a href="http://ethanschoonover.com/solarized" target="_blank" rel="external">Solarized</a>语法高亮  </li>
+</ul>
+<p>一定要查看<a href="http://octopress.org/docs" target="_blank" rel="external">文档</a>获取完整的信息(原文是the full scoop，scoop是勺子，不知这样翻译对不对?)。  </p>
+<h3 id="插件仓库"><a href="#插件仓库" class="headerlink" title="插件仓库"></a>插件仓库</h3><p>大部分插件都创建好了，但是小部分来自于Jekyll社区的插件，一直在改进和更新。  </p>
+<ul>
+<li><a href="http://octopress.org/docs/plugins/video-tag/" target="_blank" rel="external">html5的视频标签</a> - 轻松发布mp4的html5播放器，使用flash player fallback</li>
+<li><a href="http://octopress.org/docs/plugins/codeblock/" target="_blank" rel="external">代码块</a> - 很方便的内联代码共享</li>
+<li><a href="http://octopress.org/docs/plugins/include-code/" target="_blank" rel="external">包含代码</a> - 从你的文件系统中嵌入代码</li>
+<li><a href="http://octopress.org/docs/plugins/gist-tag/" target="_blank" rel="external">Gist标签</a> - 自动下载和嵌入gist要点</li>
+<li><a href="http://octopress.org/docs/plugins/image-tag/" target="_blank" rel="external">图片标签</a> - 很方便的发布图片使用类名字和标题</li>
+<li><a href="http://octopress.org/docs/plugins/render-partial/" target="_blank" rel="external">渲染部分</a> - 插入任何文件到另外的文章或者界面</li>
+<li><a href="http://octopress.org/docs/plugins/blockquote/" target="_blank" rel="external">引用块</a> - 生成漂亮的语义快引用</li>
+<li><a href="http://octopress.org/docs/plugins/pullquote/" target="_blank" rel="external">Pullquote</a> - 生成只拉引用的css样式 -  没有重复数据，没有js</li>
+<li><a href="http://octopress.org/docs/plugins/category-generator/" target="_blank" rel="external">类别生成器</a> - 为每一个博客类别生成归档页面  </li>
+</ul>
+<p>更多插件请查看<a href="http://octopress.org/docs/plugins/" target="_blank" rel="external">插件列表</a>。  </p>
+<h3 id="准备好开始了吗？"><a href="#准备好开始了吗？" class="headerlink" title="准备好开始了吗？"></a>准备好开始了吗？</h3><p>Octopress是真的很容易设置和不是，<a href="http://octopress.org/docs/setup" target="_blank" rel="external">点击这里开始</a>。  </p>
+<p>现在就是这样了。查看<a href="http://octopress.org/docs/" target="_blank" rel="external">文档</a>，<a href="https://github.com/imathis/octopress" target="_blank" rel="external">查看github的octopress库</a>，<a href="https://github.com/imathis/octopress/issues" target="_blank" rel="external">发布问题</a>，发给我<a href="http://convore.com/octopress/support" target="_blank" rel="external">支持请求</a>，以及告诉你所有朋友。  </p>
+<p>oh,假如你喜欢，在推特上支持<a href="https://twitter.com/octopress" target="_blank" rel="external">@octopress</a>和<a href="https://twitter.com/imathis" target="_blank" rel="external">@imathis</a>。</p>
+<p><strong><em>翻译自：<a href="http://octopress.org/" target="_blank" rel="external">http://octopress.org/</a></em></strong></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/octopress/" rel="tag">#octopress</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2014/09/23/zs-gb/" rel="next" title="改變不了什麼，其實已經改變了什麼">
+                <i class="fa fa-chevron-left"></i> 改變不了什麼，其實已經改變了什麼
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2014/10/02/octopress-docs/" rel="prev" title="【翻译】octopress文档">
+                【翻译】octopress文档 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2014/09/24/octopress-surfaces/"
+           data-title="【翻译】octopress2.0多面介绍" data-url="http://twalksong.com/2014/09/24/octopress-surfaces/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/2.pic.jpg"
+               alt="宋英杰" />
+          <p class="site-author-name" itemprop="name">宋英杰</p>
+          <p class="site-description motion-element" itemprop="description">纪录思辨与技术</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">43</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Octopress-2-0-介绍"><span class="nav-number">1.</span> <span class="nav-text">Octopress 2.0 介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-0有什么新特性？"><span class="nav-number">1.1.</span> <span class="nav-text">2.0有什么新特性？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#插件仓库"><span class="nav-number">1.2.</span> <span class="nav-text">插件仓库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#准备好开始了吗？"><span class="nav-number">1.3.</span> <span class="nav-text">准备好开始了吗？</span></a></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">宋英杰</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"twalksong1226"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+      
+      <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+      <script src="/js/src/hook-duoshuo.js"></script>
+    
+  
+
+
+
+
+
+
+  
+  
+  
+
+  
+
+  
+
+</body>
+</html>

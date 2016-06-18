@@ -1,0 +1,902 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="hexo,octopress,从octopress转到hexo" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="概述去年用的是octopress，今年重装操作系统，想换个生成器，所以找到了hexo，没想到还挺好用的，装的东西也比octopress要少，毕竟js的库比ruby要多，也比ruby要好用。只需安装nodejs和git就够了。而且自己也可以学学nodejs，nodejs是最近几年很火的一门语言，之前js只做前端，现在依靠谷歌的v8引擎连后端可以做。  
+软件安装操作步骤:1.安装git2.安装nod">
+<meta property="og:type" content="article">
+<meta property="og:title" content="从octopress转到hexo">
+<meta property="og:url" content="http://twalksong.com/2015/09/05/从octopress转到hexo/index.html">
+<meta property="og:site_name" content="践行者">
+<meta property="og:description" content="概述去年用的是octopress，今年重装操作系统，想换个生成器，所以找到了hexo，没想到还挺好用的，装的东西也比octopress要少，毕竟js的库比ruby要多，也比ruby要好用。只需安装nodejs和git就够了。而且自己也可以学学nodejs，nodejs是最近几年很火的一门语言，之前js只做前端，现在依靠谷歌的v8引擎连后端可以做。  
+软件安装操作步骤:1.安装git2.安装nod">
+<meta property="og:image" content="http://twalksong.com/\images\pz\sz.jpg">
+<meta property="og:image" content="http://twalksong.com/\images\pz\pub.jpg">
+<meta property="og:image" content="http://twalksong.com/\images\pz\banben.jpg">
+<meta property="og:image" content="http://twalksong.com/\images\pz\hh.jpg">
+<meta property="og:updated_time" content="2016-06-04T18:34:26.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="从octopress转到hexo">
+<meta name="twitter:description" content="概述去年用的是octopress，今年重装操作系统，想换个生成器，所以找到了hexo，没想到还挺好用的，装的东西也比octopress要少，毕竟js的库比ruby要多，也比ruby要好用。只需安装nodejs和git就够了。而且自己也可以学学nodejs，nodejs是最近几年很火的一门语言，之前js只做前端，现在依靠谷歌的v8引擎连后端可以做。  
+软件安装操作步骤:1.安装git2.安装nod">
+<meta name="twitter:image" content="http://twalksong.com/\images\pz\sz.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 6295330062220658000,
+      author: '博主'
+    }
+  };
+</script>
+
+  <title> 从octopress转到hexo | 践行者 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">践行者</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">人不能像走獸那樣活著，應該追求知識和美德。</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                从octopress转到hexo
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2015-09-05T16:50:48+08:00" content="2015-09-05">
+              2015-09-05
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/hexo/" itemprop="url" rel="index">
+                    <span itemprop="name">hexo</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/hexo/octopress/" itemprop="url" rel="index">
+                    <span itemprop="name">octopress</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2015/09/05/从octopress转到hexo/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2015/09/05/从octopress转到hexo/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>去年用的是octopress，今年重装操作系统，想换个生成器，所以找到了hexo，没想到还挺好用的，装的东西也比octopress要少，毕竟js的库比ruby要多，也比ruby要好用。只需安装nodejs和git就够了。而且自己也可以学学nodejs，nodejs是最近几年很火的一门语言，之前js只做前端，现在依靠谷歌的v8引擎连后端可以做。  </p>
+<h1 id="软件安装"><a href="#软件安装" class="headerlink" title="软件安装"></a>软件安装</h1><p>操作步骤:<br>1.安装git<br>2.安装nodejs<br>3.安装nodejs包管理器npm<br>4.安装hexo<br><a id="more"></a> </p>
+<h2 id="安装git"><a href="#安装git" class="headerlink" title="安装git"></a>安装git</h2><p>git是一个开源的版本管理器，安装nodejs的npm需要用到git，npm在github开源了，另外在使用hexo部署到github也需要用到git。<br>安装git参考<a href="http://git-scm.com/book/zh/v2/%E8%B5%B7%E6%AD%A5-%E5%AE%89%E8%A3%85-Git#在-Windows-上安装" target="_blank" rel="external">官网</a>安装方式。<br>我是安装的<a href="https://desktop.github.com/" target="_blank" rel="external">GitHub for Windows</a>,这个安装方式自带了一个shell，使用git打开这个shell就可以。不过还是需要掌握一些git简单命令，以及git的运行方式，这里有教程：<a href="http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000/" target="_blank" rel="external">Git教程</a>。  </p>
+<h2 id="安装nodejs"><a href="#安装nodejs" class="headerlink" title="安装nodejs"></a>安装nodejs</h2><p>上<a href="https://nodejs.org/" target="_blank" rel="external">nodejs官网</a>下载双击安装即可。在命令行输入<code>node -v</code>测试是否安装成功。  </p>
+<h2 id="安装npm"><a href="#安装npm" class="headerlink" title="安装npm"></a>安装npm</h2><p>npm是nodejs的包管理器，很多必须的nodejs包，用这个直接安装就行，相当于java的jdk。通过git命令直接从github网站clone下来就ok，你npm已在github开源。<br><figure class="highlight dos"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone --recursive git://github.com/isaacs/npm.git</span><br></pre></td></tr></table></figure></p>
+<p>下载下来之后转到npm下载目录，进行npm的安装：</p>
+<figure class="highlight dos"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">node cli.js install npm -gf</span><br></pre></td></tr></table></figure>
+<h2 id="安装hexo"><a href="#安装hexo" class="headerlink" title="安装hexo"></a>安装hexo</h2><figure class="highlight dos"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
+<h1 id="hexo初始化"><a href="#hexo初始化" class="headerlink" title="hexo初始化"></a>hexo初始化</h1><p>找一个你想要放置博客文件的文件夹，使用dos命令，转到这个文件夹输入如下参数进行hexo的初始化：<br><figure class="highlight dos"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo init [folder] #新建一个网站。如果没有设置 folder ，Hexo 默认在目前的文件夹建立网站。</span><br><span class="line">npm install</span><br></pre></td></tr></table></figure></p>
+<p>命令行执行成功之后，在文件夹下会生成如下目录结构：</p>
+<pre><code>├── _config.yml
+├── package.json
+├── scaffolds
+├── public
+├── node_modules
+├── source
+└── themes 
+</code></pre><p>文件夹说明：</p>
+<ol>
+<li>_config.yml:是整个站点的配置文件，例如配置网站名字，网站url地址等。  </li>
+<li><p>package.json:从它可以看出hexo版本信息，以及它所默认或者说依赖的一些组件。一般不需要去动它。<br>例如我的博客版本信息是：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"name"</span>: <span class="string">"hexo-site"</span>,</span><br><span class="line">  <span class="attr">"version"</span>: <span class="string">"0.0.0"</span>,</span><br><span class="line">  <span class="attr">"private"</span>: <span class="literal">true</span>,</span><br><span class="line">  <span class="attr">"hexo"</span>: &#123;</span><br><span class="line">    <span class="attr">"version"</span>: <span class="string">"3.1.1"</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">"dependencies"</span>: &#123;</span><br><span class="line">    <span class="attr">"hexo"</span>: <span class="string">"^3.1.1"</span>,</span><br><span class="line">    <span class="attr">"hexo-deployer-git"</span>: <span class="string">"0.0.4"</span>,</span><br><span class="line">    <span class="attr">"hexo-generator-archive"</span>: <span class="string">"^0.1.2"</span>,</span><br><span class="line">    <span class="attr">"hexo-generator-category"</span>: <span class="string">"^0.1.2"</span>,</span><br><span class="line">    <span class="attr">"hexo-generator-index"</span>: <span class="string">"^0.1.2"</span>,</span><br><span class="line">    <span class="attr">"hexo-generator-tag"</span>: <span class="string">"^0.1.1"</span>,</span><br><span class="line">    <span class="attr">"hexo-renderer-ejs"</span>: <span class="string">"^0.1.0"</span>,</span><br><span class="line">    <span class="attr">"hexo-renderer-marked"</span>: <span class="string">"^0.2.4"</span>,</span><br><span class="line">    <span class="attr">"hexo-renderer-stylus"</span>: <span class="string">"^0.2.0"</span>,</span><br><span class="line">    <span class="attr">"hexo-server"</span>: <span class="string">"^0.1.2"</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>scaffolds:模板文件。</p>
+</li>
+<li>public:博客生成后，博客静态文件的放置位置。</li>
+<li>node_modules:hexo所需的一些nodejs模块放在这个目录，一般也不需要去动。</li>
+<li>source:这个就是博客源文件放置的位置。</li>
+<li>themes:博客主题放置位置，如果我们找了一些主题或者自己新建主题，都是放在这个目录。 </li>
+</ol>
+<h2 id="hexo测试是否成功"><a href="#hexo测试是否成功" class="headerlink" title="hexo测试是否成功"></a>hexo测试是否成功</h2><figure class="highlight dos"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo generate #生成静态文件。</span><br><span class="line">hexo server #生成本地服务器，端口默认<span class="number">4000</span>启动，</span><br></pre></td></tr></table></figure>
+<p>如果在浏览器输入<a href="http://localhost:4000" target="_blank" rel="external">http://localhost:4000</a><br>看到了简单的博客效果，即说明hexo安装成功，可以进行下一步的操作了。</p>
+<h1 id="config-yml文件的配置"><a href="#config-yml文件的配置" class="headerlink" title="_config.yml文件的配置"></a>_config.yml文件的配置</h1><p>这里我只列出我改过的，详细的请查看<a href="https://hexo.io/zh-cn/docs/configuration.html" target="_blank" rel="external">hexo配置</a></p>
+<p><strong>网站</strong></p>
+<table>
+<thead>
+<tr>
+<th><em>参数</em></th>
+<th><em>描述</em>  </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>title</td>
+<td>网站标题 </td>
+</tr>
+<tr>
+<td>subtitle</td>
+<td>网站副标题 </td>
+</tr>
+<tr>
+<td>author</td>
+<td>您的名字  </td>
+</tr>
+<tr>
+<td>language</td>
+<td>网站使用的语言，简体是:zh-Hans </td>
+</tr>
+<tr>
+<td>timezone</td>
+<td>网站时区。Hexo 预设使用您电脑的时区。 </td>
+</tr>
+</tbody>
+</table>
+<p><strong>文章</strong></p>
+<table>
+<thead>
+<tr>
+<th><em>参数</em></th>
+<th><em>描述</em></th>
+<th><em>默认</em> </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>new_post_name</td>
+<td>新文章的文件名称</td>
+<td>:title.md</td>
+</tr>
+<tr>
+<td>default_layout</td>
+<td>预设布局</td>
+<td>post</td>
+</tr>
+<tr>
+<td>auto_spacing</td>
+<td>在中文和英文之间加入空格</td>
+<td>false</td>
+</tr>
+<tr>
+<td>titlecase</td>
+<td>把标题转换为 title case</td>
+<td>false</td>
+</tr>
+<tr>
+<td>external_link</td>
+<td>在新标签中打开链接</td>
+<td>true</td>
+</tr>
+<tr>
+<td>filename_case</td>
+<td>把文件名称转换为 (1) 小写或 (2) 大写</td>
+<td>0</td>
+</tr>
+<tr>
+<td>render_drafts</td>
+<td>显示草稿</td>
+<td>false</td>
+</tr>
+<tr>
+<td>post_asset_folder</td>
+<td>启动 Asset 文件夹</td>
+<td>false</td>
+</tr>
+<tr>
+<td>relative_link</td>
+<td>把链接改为与根目录的相对位址</td>
+<td>false</td>
+</tr>
+<tr>
+<td>future</td>
+<td>显示未来的文章</td>
+<td>true</td>
+</tr>
+<tr>
+<td>highlight</td>
+<td>代码块的设置</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>扩展</strong></p>
+<table>
+<thead>
+<tr>
+<th><em>参数</em></th>
+<th><em>描述</em></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>theme</td>
+<td>当前主题名称</td>
+</tr>
+<tr>
+<td>deploy</td>
+<td>部署</td>
+</tr>
+</tbody>
+</table>
+<p>deploy参数，如下：<br><figure class="highlight haml"><figcaption><span>_config.yml</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy: </span><br><span class="line">  type: git</span><br><span class="line">  repository: git@github.com:你的github用户名/你的github用户名.github.com.git #或者你自己的git服务器</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure></p>
+<h1 id="hexo相应命令"><a href="#hexo相应命令" class="headerlink" title="hexo相应命令"></a>hexo相应命令</h1><p>上面用到的命令就先不介绍了，这里介绍之后要用到的。<br><strong><strong>1.new</strong></strong><br><figure class="highlight dos"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new [layout] &lt;<span class="built_in">title</span>&gt;</span><br></pre></td></tr></table></figure></p>
+<p>新建一篇文章。如果没有设置 layout 的话，默认使用 _config.yml 中的 default_layout 参数代替。如果标题包含空格的话，请使用引号括起来。<br>例如新建文章：<code>hexo new  post 我的第一篇hexo博客</code>。  </p>
+<p><strong>2.generate</strong><br><figure class="highlight dos"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo generate</span><br></pre></td></tr></table></figure></p>
+<p>生成静态文件。一般生成在hexo根目录的public文件夹下。  </p>
+<p><strong>3.publish</strong><br><figure class="highlight dos"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo publish [layout] &lt;filename&gt;</span><br></pre></td></tr></table></figure></p>
+<p>发表草稿。没怎么用过，关键是post文章可以自己控制。</p>
+<p><strong>4.server</strong><br><figure class="highlight dos"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo server</span><br></pre></td></tr></table></figure></p>
+<p>启动本地服务器，对博客进行预览，便于测试。 </p>
+<table>
+<thead>
+<tr>
+<th>选项</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-p, –port</td>
+<td>重设端口</td>
+</tr>
+<tr>
+<td>-s, –static</td>
+<td>只使用静态文件</td>
+</tr>
+<tr>
+<td>-l, –log</td>
+<td>启动日记记录，或覆盖记录格式  </td>
+</tr>
+</tbody>
+</table>
+<p><strong>5.deploy</strong><br><figure class="highlight dos"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo deploy</span><br></pre></td></tr></table></figure></p>
+<p>将静态文件部署到github上，或者你自己的git服务器上。根据_config.yml的deploy配置，来判断部署到那个服务器。<br><figure class="highlight haml"><figcaption><span>_config.yml</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy: </span><br><span class="line">  type: git</span><br><span class="line">  repository: git@github.com:你的github用户名/你的github用户名.github.com.git #或者你自己的git服务器</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure></p>
+<p>列出网站资料。<br>更多命令请查看<a href="https://hexo.io/zh-cn/docs/commands.html" target="_blank" rel="external">hexo命令</a>  </p>
+<h1 id="将octopress博文迁移到hexo"><a href="#将octopress博文迁移到hexo" class="headerlink" title="将octopress博文迁移到hexo"></a>将octopress博文迁移到hexo</h1><p>其实两个系统本质上是相同的，就是将博客生成静态文件之后部署到git服务器，所以我们只需要将octopress下的用markdown或者其他标签语言写的post文件，拷贝过来放到hexo的<code>/hexo文件夹/source/_posts</code>文件夹下。<br>但是还有几点是需要注意的地方：</p>
+<ol>
+<li><p>因为octopress和hexo用的默认post文件名格式不一样，所以在hexo需要指定post文件名格式，这样将post文件复制到hexo，hexo才会按照这个格式来解析。修改<code>_config.yml</code> 中的 <code>new_post_name</code> 参数。 </p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">new_post_name:</span> :year-:month-:day-:title.md</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>octopress中的文章yaml标记和hexo还是有一些区别，例如octopress中的categories更像hexo中的tags，而hexo中的categories是有层次和序列的，和octopress中的categories不是一个概念。</p>
+</li>
+<li>octopress中使用的代码高亮插件是coderay，但是在hexo中却是codeblock。</li>
+<li>在hexo中，代表段落的#，后面需要加空格，但是octopress却不需要。</li>
+<li>octopress中如果要加目录需要使用<code>{:toc}</code>,但是在hexo中，不需要总是这么做，有些主题会自动生成，例如我使用的next主题。  </li>
+</ol>
+<p>因为在octopress已经写了40多篇博客，一个一个改实在麻烦，使用python批量修改，python代码:<a href="http://www.twalksong.com/2015/08/31/python%E6%9B%BF%E6%8D%A2%E6%96%87%E4%BB%B6%E5%86%85%E5%AE%B9/" target="_blank" rel="external">python替换文件内容</a>。  </p>
+<h1 id="部署到github"><a href="#部署到github" class="headerlink" title="部署到github"></a>部署到github</h1><h2 id="hexo-git模块初始化"><a href="#hexo-git模块初始化" class="headerlink" title="hexo git模块初始化"></a>hexo git模块初始化</h2><p>在部署到github的时候，需要如下命令对git进行初始化<br><figure class="highlight dos"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure></p>
+<h2 id="在github端加上本地的SSH-keys"><a href="#在github端加上本地的SSH-keys" class="headerlink" title="在github端加上本地的SSH keys"></a>在github端加上本地的SSH keys</h2><p>如果要将本地的库连上github，需要在github端加上本地生成的密钥。<br><strong><font size="4">1.生成shh密钥：</font></strong><br><figure class="highlight dos"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt; <span class="built_in">cd</span> ~ #转到用户目录,windows下是C:\Users\用户名</span><br><span class="line">&gt; ssh-keygen -t rsa -b <span class="number">4096</span> -C "your_email@example.com"</span><br><span class="line">  Enter file <span class="keyword">in</span> which to save the key (/Users/you/.ssh/id_rsa): [Press enter] #最好输入密码</span><br></pre></td></tr></table></figure></p>
+<p>然后你就生成了密钥如下显示：<br><figure class="highlight dos"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Your identification has been saved <span class="keyword">in</span> /Users/you/.ssh/id_rsa.</span><br><span class="line">Your public key has been saved <span class="keyword">in</span> /Users/you/.ssh/id_rsa.pub.</span><br><span class="line">The key fingerprint is:</span><br><span class="line"><span class="number">01</span>:<span class="number">0</span>f:f4:<span class="number">3</span>b:ca:<span class="number">85</span>:d6:<span class="number">17</span>:a1:<span class="number">7</span>d:f0:<span class="number">68</span>:<span class="number">9</span>d:f0:a2:db your_email@example.com</span><br></pre></td></tr></table></figure></p>
+<p><strong><font size="4">2.将生成的密钥加到ssh-agent</font></strong><br>这一步貌似是使用了<a href="https://desktop.github.com/" target="_blank" rel="external">GitHub for Windows</a>的windows用户才要做<br>打开<code>Git Shell</code>, 先确定<code>ssh-agent</code>是可用的，输入如下命令:<br><figure class="highlight dos"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt; ssh-agent -s</span><br><span class="line">  Agent pid <span class="number">59566</span></span><br></pre></td></tr></table></figure></p>
+<p>如果确信可用，然后将<code>C:\Users\你的电脑用户名\.ssh\id_rsa</code>密钥加入到ssh-agent中：<br><figure class="highlight dos"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt; ssh-add ~/.ssh/id_rsa</span><br></pre></td></tr></table></figure></p>
+<p><strong><font size="4">3.将密钥加到你的github账户</font></strong><br>在windows下直接用txt打开<code>C:\Users\你的电脑用户名\.ssh\id_rsa.pub</code>公钥文件，全部复制里面的内容。然后打开github网站的设置，点击左边菜单的<code>SSH key</code>，然后点击增加<code>add ssh key</code>，将从pub文件复制的内容拷贝到key文本框，最后点击<code>add key</code>就ok了。<br> <img src="\images\pz\sz.jpg" alt="打开github ssh key设置页面"><br><img src="\images\pz\pub.jpg" alt="拷贝pub内容到key">  </p>
+<h2 id="git介绍"><a href="#git介绍" class="headerlink" title="git介绍"></a>git介绍</h2><p>其实前面这些步骤都不难，问题很有可能就处在git这一步，你必须熟悉github相关知识和命令，不熟悉者，请再次熟悉<a href="http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000/" target="_blank" rel="external">git教程</a>，<a href="http://git-scm.com/book/zh/v2" target="_blank" rel="external">这本书</a>也不错，一些简单命令必须要学会。  </p>
+<p><img src="\images\pz\banben.jpg" alt="分布式版本控制">  </p>
+<p>如果大家熟悉svn的话，知道svn是集中式的版本管理器，但是git是分布式的版本管理器，分布式就是说，没有所谓的服务器，每一台机器都是服务器，都有一个项目完全的拷贝，这样即使git服务器down了，还有很多拷贝，这个是学习git的先行概念。而且集中式，必须要能连上svn服务器，但是git，只要别人有git库，你就可以连上他的库。</p>
+<h2 id="git初始化hexo部署库"><a href="#git初始化hexo部署库" class="headerlink" title="git初始化hexo部署库"></a>git初始化hexo部署库</h2><p>请注意：按道理，执行<code>hexo deploy</code>会帮助我们在这个目录初始化，但是当我在做的时候，实际上不会，所以，自己手动在hexo目录初始化库了。如果你的可以正常部署，那么这一步可以略过。  </p>
+<p>安装git之后，先要在本地也初始化一个git库，要不然如何和github服务器沟通呢。<br>但是这里要注意的是，因为hexo在执行<code>hexo deploy</code>是会将生成的静态文件copy到<code>.deploy_git</code>文件夹下，所以呢git库要在这个目录初始化。  </p>
+<figure class="highlight dos"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt; git config -global user.name "Your name" #告诉git你叫什么名字，最好和githubd的一样</span><br><span class="line">&gt; git config -global user.email "you@example.com"</span><br><span class="line">&gt; <span class="built_in">cd</span> <span class="variable">%nodejs-home%</span>/.deploy_git</span><br><span class="line">&gt; git init</span><br></pre></td></tr></table></figure>
+<p>之后就会在<code>.deploy_git</code>文件夹下新建一个<code>.git</code>的文件夹，这个文件夹下是git相关库文件，具体是什么我们不需要去动它。  </p>
+<p>然后新建本地分支：</p>
+<pre><code class="dos">&gt; <span class="built_in">cd</span> <span class="variable">%nodejs-home%</span>/.deploy_git
+&gt; git branch master #创建一个master分子和到.deploy_git文件夹
+</code></pre>
+<p>切换到<code>master</code>分支:</p>
+<pre><code class="dos">&gt; <span class="built_in">cd</span> <span class="variable">%nodejs-home%</span>/.deploy_git
+&gt; git checkout master
+</code></pre>
+<p><code>git add .</code>命令将当前目录制作一个快照snapshot（快照只是登记留名，快照不等于记录在案，git管快照叫做索引index)。这一步是必须的。<br>然后使用<code>git commit</code>命令将快照里登记的内容永久写入git仓库中，也就是开发者已经想好了要提交自己的开发成果了。</p>
+<pre><code class="dos">&gt; <span class="built_in">cd</span> <span class="variable">%nodejs-home%</span>/.deploy_git
+&gt; git add .
+&gt; git commit -m "第一次提交" #将内容提交到本地库
+</code></pre>
+<p>这里一定要了解git是分布式的版本管理方式，所以<code>git commit</code>只是提交到本地库的当前分支<br>但是我要提交到远程github上，所以先修改<code>.deploy_git/.git/config</code>文件夹:</p>
+<pre><code class="haml">[branch &quot;master&quot;]
+    remote = git@github.com:你的github账号/你的github账号.github.com.git
+    merge = refs/heads/master
+</code></pre>
+<p>然后在命令行执行如下命令就ok了：</p>
+<pre><code class="dos">&gt; <span class="built_in">cd</span> <span class="variable">%nodejs-home%</span>/.deploy_git
+&gt; git push master master #将本地的master分支提交到远程的master分支上
+</code></pre>
+<p>我本机环境是，我如此执行完如上命令，<code>hexo deploy</code>才完全起作用，可能跟我之前用octopress部署过有关系。  </p>
+<h2 id="git开发工作流"><a href="#git开发工作流" class="headerlink" title="git开发工作流"></a>git开发工作流</h2><p>你的本地仓库由 git 维护的三棵“树”组成。第一个是你的<code>工作目录</code>，它持有实际文件；第二个是 <code>缓存区（Index）</code>，它像个缓存区域，临时保存你的改动；最后是<code>HEAD</code>，指向你最近一次提交后的结果。  </p>
+<p><img src="\images\pz\hh.jpg" alt="分布式版本控制">  </p>
+<h2 id="git遇到的问题"><a href="#git遇到的问题" class="headerlink" title="git遇到的问题"></a>git遇到的问题</h2><ol>
+<li><p><code>hexo deploy</code>报<code>error:src refspec master does not match any</code><br>将本地GIT版本库PUSH到一个GITHUB上一个空的版本库时可能会出现如下错误<br>error:src refspec master does not match any<br>原因: 本地版本库为空, 空目录不能提交 (只进行了init, 没有add和commit)<br>所以我才执行如上很麻烦的操作。  </p>
+</li>
+<li><p><code>hexo deploy</code>时候也没有报错，但是就是没有更新到github，如何解释？<br>后来发现是在_config.yml中名/值中要有空格例如：type：（空格）git。  </p>
+</li>
+<li><p>Error: Permission denied (publickey)<br>出现这个问题是没有将密钥加入到ssh-agent中，先<code>ssh-add -l</code>看是否存在ssh,没有再执行一次<code>ssh-add ~/.ssh/id_rsa</code>就好了。  </p>
+</li>
+</ol>
+
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/octopress/" rel="tag">#octopress</a>
+          
+            <a href="/tags/hexo/" rel="tag">#hexo</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/09/04/英国出轨网站被曝90-的女性是机器人/" rel="next" title="英国出轨网站被曝90%的女性是机器人">
+                <i class="fa fa-chevron-left"></i> 英国出轨网站被曝90%的女性是机器人
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/09/12/hexo进阶/" rel="prev" title="hexo进阶">
+                hexo进阶 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2015/09/05/从octopress转到hexo/"
+           data-title="从octopress转到hexo" data-url="http://twalksong.com/2015/09/05/从octopress转到hexo/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/2.pic.jpg"
+               alt="宋英杰" />
+          <p class="site-author-name" itemprop="name">宋英杰</p>
+          <p class="site-description motion-element" itemprop="description">纪录思辨与技术</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">43</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#概述"><span class="nav-number">1.</span> <span class="nav-text">概述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#软件安装"><span class="nav-number">2.</span> <span class="nav-text">软件安装</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装git"><span class="nav-number">2.1.</span> <span class="nav-text">安装git</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装nodejs"><span class="nav-number">2.2.</span> <span class="nav-text">安装nodejs</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装npm"><span class="nav-number">2.3.</span> <span class="nav-text">安装npm</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装hexo"><span class="nav-number">2.4.</span> <span class="nav-text">安装hexo</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#hexo初始化"><span class="nav-number">3.</span> <span class="nav-text">hexo初始化</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#hexo测试是否成功"><span class="nav-number">3.1.</span> <span class="nav-text">hexo测试是否成功</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#config-yml文件的配置"><span class="nav-number">4.</span> <span class="nav-text">_config.yml文件的配置</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#hexo相应命令"><span class="nav-number">5.</span> <span class="nav-text">hexo相应命令</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#将octopress博文迁移到hexo"><span class="nav-number">6.</span> <span class="nav-text">将octopress博文迁移到hexo</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#部署到github"><span class="nav-number">7.</span> <span class="nav-text">部署到github</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#hexo-git模块初始化"><span class="nav-number">7.1.</span> <span class="nav-text">hexo git模块初始化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#在github端加上本地的SSH-keys"><span class="nav-number">7.2.</span> <span class="nav-text">在github端加上本地的SSH keys</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#git介绍"><span class="nav-number">7.3.</span> <span class="nav-text">git介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#git初始化hexo部署库"><span class="nav-number">7.4.</span> <span class="nav-text">git初始化hexo部署库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#git开发工作流"><span class="nav-number">7.5.</span> <span class="nav-text">git开发工作流</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#git遇到的问题"><span class="nav-number">7.6.</span> <span class="nav-text">git遇到的问题</span></a></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">宋英杰</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"twalksong1226"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+      
+      <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+      <script src="/js/src/hook-duoshuo.js"></script>
+    
+  
+
+
+
+
+
+
+  
+  
+  
+
+  
+
+  
+
+</body>
+</html>
